@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CerebroScene.unity
     guid: ea36b0eace03c9c40a6f6be5e4c1b8e0
+  - enabled: 1
+    path: Assets/Scenes/CanvasScene.unity
+    guid: ebecbc447383466428709a0eb3b92f1c
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 05b6e182f14433b4c9c033c9c44faad0
   m_configObjects: {}

@@ -57,10 +57,9 @@ public class GameManager : MonoBehaviour
 
     public void RepairCurrentTumor()
     {
-        // desactivar tumor actual
-        if (currentRepair > tumores.Length)
+        if (currentRepair >= tumores.Length)
             return;
-            
+        // desactivar tumor actual
         tumores[currentRepair].gameObject.SetActive(false);
         
         if(++currentRepair == tumores.Length)

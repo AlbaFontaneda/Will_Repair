@@ -8,11 +8,16 @@ public class CountDown : MonoBehaviour
 {
     /*Uses Thaleah Font from the AssetStore*/
 
-    private GameManager _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    private GameManager _gameManager = null;
 
     public float timeLeft = 70.0f;
 
     public Text text;
+
+    void Awake()
+    {
+        _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
 
     // Start is called before the first frame update
     void Start()

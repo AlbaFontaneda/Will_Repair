@@ -18,6 +18,9 @@ public class MovementControl : MonoBehaviour
     public float timeFromZeroToMax = 0.6f;
     public Vector3 currentSpeed;
 
+    public float deathCooldownTime = 3f;
+    private float currentDeathCooldown = 0;
+
     private float moveTowardsX = 0, moveTowardsY = 0;
 
     void Start()
@@ -25,9 +28,21 @@ public class MovementControl : MonoBehaviour
         currentSpeed = new Vector3(0, 0, 0);
     }
 
+    public void ResetMovement() {
+        currentSpeed = new Vector3(0, 0, 0);
+        currentDeathCooldown = deathCooldownTime;
+    }
+
     // Update is called once per frame
     void Update()
     {
+
+        if (currentDeathCooldown > 0)
+        {
+            currentDeathCooldown -= Time.deltaTime;
+            currentSpeed = new Vector3(0, 0, 0);
+            return;
+        }
 
         float changeRatePerSecond = 1 / timeFromZeroToMax * Time.deltaTime;
         dashCooldownLeft -= Time.deltaTime;
@@ -63,7 +78,9 @@ public class MovementControl : MonoBehaviour
         }
         
 
-        transform.Translate(currentSpeed.x*speedMultiplier, currentSpeed.y*speedMultiplier, 0);
+        transform.Translate(currentSpeed.x*speedMultiplier * Time.deltaTime, currentSpeed.y*speedMultiplier * Time.deltaTime, 0);
+
+        return;
 
 
         /* ***************

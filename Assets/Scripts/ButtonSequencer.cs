@@ -19,6 +19,8 @@ public class ButtonSequencer : MonoBehaviour
     public int[] sequence = { 0, 0, 0, 0 };
     int currentIndex = 0;
 
+    private bool sequenceCreated = false;
+
     int sequenceSize;
     // Start is called before the first frame update
     void Start()
@@ -30,13 +32,19 @@ public class ButtonSequencer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
+
     }
 
     public void createSequence()
     {
-        for (int i=0; i< sequenceSize; ++i) 
+        for (int i = 0; i < sequenceSize; ++i)
+        {
             sequence[i] = Random.Range(0, sequenceSize);
+        }
+        Debug.Log("Secuencia no creada", this);
         showSequence();
+        
+        Debug.Log("Secuencia creada", this);
     }
     public void showSequence()
     {
@@ -66,6 +74,8 @@ public class ButtonSequencer : MonoBehaviour
             yield return wait;
             updateButton(i, sequence[i], eStatus.BASE);
         }
+
+        sequenceCreated = true;
     }
 
     public void updateButton(int indexButton, int indexDirection, eStatus status)
