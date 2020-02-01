@@ -12,13 +12,13 @@ public class GameManager : MonoBehaviour
     // los vamos a coger automaticamente de la escena
     List<Repair> enemies;
 
-    private FlyingCharacter2D m_character;
+    private GameObject m_character;
 
     private int currentZone;
 
     void Awake()
     {
-        m_character = GameObject.FindObjectOfType<FlyingCharacter2D>();
+        m_character = GameObject.FindWithTag("Player");
         enemies = new List<Repair>();
     }
 
