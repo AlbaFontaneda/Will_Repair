@@ -29,10 +29,11 @@ public class GameManager : MonoBehaviour
 
         // Activar el primer tumor y mantener tumorActivo
         currentRepair = 0;
-        tumores[currentRepair].gameObject.SetActive(true);
+        if (tumores.Length > 0)
+            tumores[currentRepair].gameObject.SetActive(true);
     }
 
-    public void ChangeSceneAdditive(string scene, Vector2 spawnPoint, Vector2 cameraPosition)
+    public void ChangeSceneAdditive(string scene, Vector3 spawnPoint, Vector3 cameraPosition)
     {
         if (!SceneManager.GetSceneByName(scene).isLoaded)
         {
@@ -57,6 +58,9 @@ public class GameManager : MonoBehaviour
     public void RepairCurrentTumor()
     {
         // desactivar tumor actual
+        if (currentRepair > tumores.Length)
+            return;
+            
         tumores[currentRepair].gameObject.SetActive(false);
         
         if(++currentRepair == tumores.Length)

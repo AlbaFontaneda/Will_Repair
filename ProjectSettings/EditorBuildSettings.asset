@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 8e20bf9663911eb48ab75fbe32dcc55f
+  - enabled: 1
+    path: Assets/Scenes/CerebroScene.unity
+    guid: ea36b0eace03c9c40a6f6be5e4c1b8e0
   m_configObjects: {}
