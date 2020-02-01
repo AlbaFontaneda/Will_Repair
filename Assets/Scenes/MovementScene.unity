@@ -296,14 +296,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538ea6197c5c7134281384c8ac71520b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressedDash: 0
-  dashing: 0
-  dashDir: {x: 0, y: 0, z: 0}
   dashDuration: 0.25
-  dashTimeLeft: 0
-  dashSpeed: 1.7
-  speed: 0
-  speedMultiplier: 0.15
-  timeFromZeroToMax: 1
-  maxSpeed: 3
+  dashSpeed: 2.25
+  dashCooldownTime: 0.5
+  speedMultiplier: 0.09
+  timeFromZeroToMax: 0.6
   currentSpeed: {x: 0, y: 0, z: 0}

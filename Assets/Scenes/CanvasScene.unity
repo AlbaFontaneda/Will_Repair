@@ -684,7 +684,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1035ca9169e471847a9dd9809360328b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iButtons: []
+  upSprites:
+  - {fileID: 21300000, guid: bba41ded10c3c7c48b7d3ff8b44c523c, type: 3}
+  - {fileID: 21300000, guid: 9afdf236d5ba66949abcb01fc6b70d26, type: 3}
+  - {fileID: 21300000, guid: aae504ca459f5d84ea8c5229f9ee2fdf, type: 3}
+  downSprites:
+  - {fileID: 21300000, guid: 16b1a647419901b4d9801eec0387a766, type: 3}
+  - {fileID: 21300000, guid: 1a27737672093704594ef065445307be, type: 3}
+  - {fileID: 21300000, guid: e230d7e608ba6f54a84404c9835ba52d, type: 3}
+  leftSprites:
+  - {fileID: 21300000, guid: da9c8814da509cd40b9aa3b35a4a3598, type: 3}
+  - {fileID: 21300000, guid: 9bf05c546d20ab440978e0f78238e6cc, type: 3}
+  - {fileID: 21300000, guid: c48a189deaffe294b8d1ed5d34f6148d, type: 3}
+  rightSprites:
+  - {fileID: 21300000, guid: 305d52c65cc97ed45ba31b94b65b1f3a, type: 3}
+  - {fileID: 21300000, guid: d85bce5d21913dc4792ca24d9e5b22c6, type: 3}
+  - {fileID: 21300000, guid: 047d6ca1d4a784f46ab967e10f13c1a4, type: 3}
+  iButtons:
+  - {fileID: 399832319}
+  - {fileID: 1197587342}
+  - {fileID: 1378474056}
+  - {fileID: 1975373739}
   sequence: 00000000000000000000000000000000
 --- !u!1 &1176820740
 GameObject:
