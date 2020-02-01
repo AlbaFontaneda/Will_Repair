@@ -4,7 +4,14 @@ using UnityEngine;
 
 public class Repair : MonoBehaviour
 {
-    public EnumZonas zona;
+    public Zona zona;
+
+    private GameManager game;
+
+    void Awake()
+    {
+        game = GameObject.FindObjectOfType<GameManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +33,9 @@ public class Repair : MonoBehaviour
             FlyingCharacter2D m_Character = other.GetComponent<FlyingCharacter2D>();
 
             // activar mini juego del character
-
-            m_Character.StartGame(this);
+            //m_Character.StartGame(this);
+            game.RepairCurrentTumor();
         }
-    }
-
-    // Destruir el tumor cuando el jugador termina el mini juego
-    public void Destruir()
-    {
-        Destroy(this.gameObject);
     }
 
 }
