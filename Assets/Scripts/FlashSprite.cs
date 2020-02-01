@@ -11,25 +11,25 @@ public class FlashSprite : MonoBehaviour
     bool toggle = false;
     int deathCounter = 0;
 
-    void FixedUpdate()    // you can you FixedUpdate for fixed flash rate
+    /*void FixedUpdate()    // you can you FixedUpdate for fixed flash rate
     {
         Flash(mySpriteRenderer);
 
-        if (deathCounter > 6)
+        if (deathCounter > 0)
         {
             mySpriteRenderer.enabled = true;
             deathCounter = 0;
             Death death = this.gameObject.GetComponent<Death>();
             death.Spawn();
         }
-    }
+    }*/
 
    public void enabledFlash(bool enable) {
         flashed = enable;
+        this.gameObject.GetComponent<Death>().Spawn();
     }
 
-
-    void Flash(SpriteRenderer spriteRen)
+    /*void Flash(SpriteRenderer spriteRen)
     {
 
         if (flashed)
@@ -56,6 +56,6 @@ public class FlashSprite : MonoBehaviour
             }
         }
         
-    }
+    }*/
 
 }

@@ -30,8 +30,8 @@ public class steamDamage : MonoBehaviour
         }
         
     }
-
-    void OnTriggerExit2D(Collider2D col)
+    // Nah, que si nos tocan una vez muramos
+    /*void OnTriggerExit2D(Collider2D col)
     {
         Debug.Log("Matar al nanobot");
         GameObject colObject = col.gameObject;
@@ -43,5 +43,5 @@ public class steamDamage : MonoBehaviour
             flashSprite.enabledFlash(false);
         }
 
-    }
+    }*/
 }
