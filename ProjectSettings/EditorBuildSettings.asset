@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 05b6e182f14433b4c9c033c9c44faad0
+  - enabled: 1
+    path: Assets/Scenes/EstomagoScene.unity
+    guid: ada159421500d2a43ac8a4607f2ac956
   m_configObjects: {}
