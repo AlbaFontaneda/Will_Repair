@@ -2,8 +2,6 @@ using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 
-namespace UnityStandardAssets._2D
-{
     [RequireComponent(typeof (FlyingCharacter2D))]
     public class Flying2DUserControl : MonoBehaviour
     {
@@ -28,4 +26,3 @@ namespace UnityStandardAssets._2D
             m_Character.Move(h, v);
         }
     }
-}

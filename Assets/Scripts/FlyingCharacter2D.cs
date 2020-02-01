@@ -1,13 +1,13 @@
 using System;
 using UnityEngine;
 
-namespace UnityStandardAssets._2D
-{
     public class FlyingCharacter2D : MonoBehaviour
     {
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
 
         private Rigidbody2D m_Rigidbody2D;
+
+        private Repair currentRepair;
 
         private void Awake()
         {
@@ -25,5 +25,15 @@ namespace UnityStandardAssets._2D
                 m_Rigidbody2D.velocity = new Vector2(horizontal * m_MaxSpeed, vertical * m_MaxSpeed);
         }
 
+        public void StartGame(Repair repair)
+        {
+            // mostrar interfaz de botones
+
+
+            // asignar la reparacion actual
+            currentRepair = repair;
+
+            currentRepair.Destruir();
+        }
+
     }
-}
