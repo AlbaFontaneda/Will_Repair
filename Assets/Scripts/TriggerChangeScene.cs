@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerChangeScene : MonoBehaviour
 {
-    private GameManager _manager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
+    private GameManager _manager = null;
 
     [SerializeField] private string _scene = null;
 
@@ -12,8 +12,14 @@ public class TriggerChangeScene : MonoBehaviour
 
     [SerializeField] private Transform _cameraTransform = null;
 
-    void OnTriggerEnter()
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         _manager.ChangeSceneAdditive(_scene, _spawnTransform.position, _cameraTransform.position);
+    }
+
+    void Awake()
+    {
+        _manager = GameObject.FindWithTag("GameManager").GetComponent<GameManager>();
     }
 }
