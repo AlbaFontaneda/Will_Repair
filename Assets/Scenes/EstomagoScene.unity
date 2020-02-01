@@ -187,5 +187,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: EstomagoNivel
       objectReference: {fileID: 0}
+    - target: {fileID: 4762112531542387410, guid: b174142d7b4525142a928a8801e8acdb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591165899609925642, guid: b174142d7b4525142a928a8801e8acdb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b174142d7b4525142a928a8801e8acdb, type: 3}
