@@ -7,7 +7,7 @@ public class CountDown : MonoBehaviour
 {
     /*Uses Thaleah Font from the AssetStore*/
 
-    float timeLeft = 300.0f;
+    public float timeLeft = 70.0f;
 
     public Text text;
 

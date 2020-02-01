@@ -12,15 +12,22 @@ public class ECGScript : MonoBehaviour
 
     // Creates a line renderer that follows a Sin() function
     // and animates it.
-    public Color c1 = Color.yellow;
-    public Color c2 = Color.red;
-    public int lengthOfLineRenderer = 20;
-    public int speedMultiplier = 3;
-    public int scaleDivisor = 5000;
-    public float widthScale = 0.10f;
+    public Color dark_ok = Color.green;
+    public Color dark_bad = Color.red;
+    public Color clear = Color.white;
+    public int lengthOfLineRenderer = 100;
+    public int speedMultiplier = 20;
+    public float scaleDivisor = 1.8f;
+    public float widthScale = 0.02f;
+    public int criticalTime = 60;
 
-    public int positionX = -100;
-    public int positionY = -100;
+    public float positionX = -8.2f;
+    public float positionY = 3;
+
+    CountDown countDown;
+
+    Gradient gradient_ok;
+    Gradient gradient_bad;
 
     public float[] ecgpoints = {
         1.0f,0.9003f,0.3586f,0.0515f,0.0466f,0.1268f,0.1333f,0.1191f,0.1106f,0.113f,
@@ -39,6 +46,8 @@ public class ECGScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        countDown = gameObject.GetComponent(typeof(CountDown)) as CountDown;
+
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.widthMultiplier = 0.05f;
@@ -46,12 +55,18 @@ public class ECGScript : MonoBehaviour
 
         // A simple 2 color gradient with a fixed alpha of 1.0f.
         float alpha = 1.0f;
-        Gradient gradient = new Gradient();
-        gradient.SetKeys(
-            new GradientColorKey[] { new GradientColorKey(c1, 0.0f), new GradientColorKey(c2, 1.0f) },
+
+        gradient_ok = new Gradient();
+        gradient_bad = new Gradient();
+        gradient_ok.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(dark_ok, 0.0f), new GradientColorKey(clear, 1.0f) },
             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
         );
-        lineRenderer.colorGradient = gradient;
+        gradient_bad.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(dark_bad, 0.0f), new GradientColorKey(clear, 1.0f) },
+            new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f), new GradientAlphaKey(alpha, 1.0f) }
+        );
+        //lineRenderer.colorGradient = gradient_ok;
     }
 
     // Update is called once per frame
@@ -59,10 +74,29 @@ public class ECGScript : MonoBehaviour
     {
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         var t = Time.time;
-        for (int i = 0; i < lengthOfLineRenderer; i++)
-        {
-            lineRenderer.SetPosition(i, new Vector3(i * widthScale + positionX, ecgpoints[((int)(i+t*speedMultiplier) %lengthOfLineRenderer)]/ scaleDivisor + positionY, 0.0f));
-            
+        if (countDown != null) {
+            if (countDown.timeLeft < criticalTime) {
+                lineRenderer.colorGradient = gradient_bad;
+                for (int i = 0; i < lengthOfLineRenderer; i++)
+                {
+                    lineRenderer.SetPosition(i, new Vector3(i * widthScale + positionX,
+                        ecgpoints[((int)(i + t * speedMultiplier*2) % lengthOfLineRenderer)] / scaleDivisor + positionY,
+                        0.0f));
+
+                }
+            }
+            else
+            {
+                lineRenderer.colorGradient = gradient_ok;
+                for (int i = 0; i < lengthOfLineRenderer; i++)
+                {
+                    lineRenderer.SetPosition(i, new Vector3(i * widthScale + positionX,
+                        ecgpoints[((int)(i + t * speedMultiplier) % lengthOfLineRenderer)] / scaleDivisor + positionY,
+                        0.0f));
+
+                }
+            }
         }
+
     }
 }
