@@ -10,13 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1117354360717836260}
   - component: {fileID: 1117354360717836259}
-  - component: {fileID: 1117354360717836263}
-  - component: {fileID: 1117354360717836262}
   - component: {fileID: 1117354360717836261}
   - component: {fileID: 1308026005}
   - component: {fileID: 1308026011}
   - component: {fileID: 1308026012}
-  - component: {fileID: 8193285310253777259}
   - component: {fileID: 1308026013}
   - component: {fileID: 5878333153584328145}
   m_Layer: 0
@@ -90,31 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1117354360717836263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117354360717836258}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69efcb6d2d2a2484db3edcf6e7ef8aa5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MaxSpeed: 2
---- !u!114 &1117354360717836262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117354360717836258}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b8ecfa4612859479f7bad05cb46c39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &1117354360717836261
 Rigidbody2D:
   serializedVersion: 4
@@ -174,7 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39357fc97cadc7941a99d947164d600f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySpriteRenderer: {fileID: 1117354360717836259}
 --- !u!114 &1308026012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -188,24 +159,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
---- !u!114 &8193285310253777259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1117354360717836258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 538ea6197c5c7134281384c8ac71520b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashDuration: 0.25
-  dashSpeed: 2.25
-  dashCooldownTime: 0.5
-  speedMultiplier: 0.03
-  timeFromZeroToMax: 0.6
-  currentSpeed: {x: 0, y: 0, z: 0}
 --- !u!95 &1308026013
 Animator:
   serializedVersion: 3
@@ -237,9 +190,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 538ea6197c5c7134281384c8ac71520b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashDuration: 0.25
-  dashSpeed: 3
+  dashDuration: 0.2
+  dashSpeed: 2.5
   dashCooldownTime: 0.5
-  speedMultiplier: 0.025
+  speedMultiplier: 0.04
   timeFromZeroToMax: 0.6
   currentSpeed: {x: 0, y: 0, z: 0}
+  deathCooldownTime: 0.1

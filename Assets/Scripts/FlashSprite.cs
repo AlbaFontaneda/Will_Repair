@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class FlashSprite : MonoBehaviour
 {
-    int delay = 2;
+    bool flashed = false;
+
+    public void enabledFlash(bool enable) {
+        flashed = enable;
+        this.gameObject.GetComponent<Death>().Spawn();
+    }
+
+    /*int delay = 2;
     public SpriteRenderer mySpriteRenderer;
     int counter;
-    bool flashed = false;
     bool toggle = false;
-    int deathCounter = 0;
+    int deathCounter = 0;*/
+
+    //old shit
 
     /*void FixedUpdate()    // you can you FixedUpdate for fixed flash rate
     {
@@ -23,11 +31,6 @@ public class FlashSprite : MonoBehaviour
             death.Spawn();
         }
     }*/
-
-   public void enabledFlash(bool enable) {
-        flashed = enable;
-        this.gameObject.GetComponent<Death>().Spawn();
-    }
 
     /*void Flash(SpriteRenderer spriteRen)
     {
