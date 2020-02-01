@@ -187,6 +187,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1117354360717836260, guid: ab4eb1c38fa504243986a137e26d7294,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117354360717836260, guid: ab4eb1c38fa504243986a137e26d7294,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 1117354360717836261, guid: ab4eb1c38fa504243986a137e26d7294,
         type: 3}
       propertyPath: m_BodyType
@@ -284,11 +294,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8229963720679240714, guid: 892b330d15a3c54459439ef78b21cca2,
-        type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
     - target: {fileID: 8229963720679240712, guid: 892b330d15a3c54459439ef78b21cca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -349,6 +354,11 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1558960418}
+    - target: {fileID: 8229963720679240714, guid: 892b330d15a3c54459439ef78b21cca2,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 892b330d15a3c54459439ef78b21cca2, type: 3}
 --- !u!1 &1924785637 stripped
