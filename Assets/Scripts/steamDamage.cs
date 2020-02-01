@@ -19,11 +19,11 @@ public class steamDamage : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-
+        Debug.Log("Matar al nanobot");
         GameObject colObject = col.gameObject;
         if (colObject.gameObject.tag == "Player")
         {
-            Debug.Log("Matar al nanobot");
+            
             FlashSprite flashSprite = colObject.GetComponent<FlashSprite>();
 
             flashSprite.enabledFlash(true);
@@ -33,11 +33,11 @@ public class steamDamage : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-
+        Debug.Log("Matar al nanobot");
         GameObject colObject = col.gameObject;
         if (colObject.gameObject.tag == "Player")
         {
-            Debug.Log("Matar al nanobot");
+            
             FlashSprite flashSprite = colObject.GetComponent<FlashSprite>();
 
             flashSprite.enabledFlash(false);
