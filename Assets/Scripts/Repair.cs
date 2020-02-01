@@ -32,9 +32,8 @@ public class Repair : MonoBehaviour
         {
             FlyingCharacter2D m_Character = other.GetComponent<FlyingCharacter2D>();
 
-            // activar mini juego del character
-            //m_Character.StartGame(this);
-            game.RepairCurrentTumor();
+            // activar mini juego del character para este tumor
+            game.RepairCurrentTumor(this);
         }
     }
 

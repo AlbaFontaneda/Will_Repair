@@ -11,4 +11,4 @@ Estomago: -120, -200
 Intestinos: -75, -230
 */
 
-public enum Zona { Cerebro, Corazon, Pulmones, Estomago, Intestinos };
+public enum Zona { Corazon = 0, Estomago = 1, Pulmones = 2, Cerebro = 3 };

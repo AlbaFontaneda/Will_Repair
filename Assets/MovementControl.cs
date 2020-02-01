@@ -78,7 +78,7 @@ public class MovementControl : MonoBehaviour
         }
         
 
-        transform.Translate(currentSpeed.x*speedMultiplier, currentSpeed.y*speedMultiplier, 0);
+        transform.Translate(currentSpeed.x*speedMultiplier * Time.deltaTime, currentSpeed.y*speedMultiplier * Time.deltaTime, 0);
 
         return;
 
