@@ -14,7 +14,6 @@ public class TriggerChangeScene : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
         _manager.ChangeSceneAdditive(_scene, _spawnTransform.position, _cameraTransform.position);
     }
 
