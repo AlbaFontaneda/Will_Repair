@@ -8,6 +8,8 @@ public class CountDown : MonoBehaviour
 {
     /*Uses Thaleah Font from the AssetStore*/
 
+    private GameManager _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
     public float timeLeft = 70.0f;
 
     public Text text;
@@ -46,7 +48,7 @@ public class CountDown : MonoBehaviour
         text.text = ((int)(seconds/60)).ToString().PadLeft(2, '0') + ":"+(seconds%60).ToString().PadLeft(2, '0');
         if (timeLeft < 0)
         {
-            SceneManager.LoadScene("gameOver");
+            _gameManager.ChangeScene("GameOver");
         }
     }
 }
