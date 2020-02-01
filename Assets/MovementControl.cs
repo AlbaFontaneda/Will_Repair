@@ -11,11 +11,11 @@ public class MovementControl : MonoBehaviour
     private Vector3 dashDir;
     public float dashDuration = 0.25f;
     private float dashTimeLeft;
-    public float dashSpeed = 1.8f;
-    private float speed;
-    public float speedMultiplier = 0.25f;
-    public float timeFromZeroToMax;
-    public float maxSpeed = 5;
+    public float dashSpeed = 2.25f;
+    public float dashCooldownTime = 0.5f;
+    private float dashCooldownLeft;
+    public float speedMultiplier = 0.09f;
+    public float timeFromZeroToMax = 0.6f;
     public Vector3 currentSpeed;
 
     private float moveTowardsX = 0, moveTowardsY = 0;
@@ -30,6 +30,7 @@ public class MovementControl : MonoBehaviour
     {
 
         float changeRatePerSecond = 1 / timeFromZeroToMax * Time.deltaTime;
+        dashCooldownLeft -= Time.deltaTime;
 
         if (dashing)
         {
@@ -38,7 +39,8 @@ public class MovementControl : MonoBehaviour
             currentSpeed = dashDir * dashSpeed;
             if (dashTimeLeft <= 0) { 
                 dashing = false;
-                currentSpeed = new Vector3(currentSpeed.x/dashSpeed, currentSpeed.y/dashSpeed, 0);
+                dashCooldownLeft = dashCooldownTime;
+                currentSpeed = new Vector3(currentSpeed.x/1.5f, currentSpeed.y/1.5f, 0);
             }
         } else
         {
@@ -52,7 +54,7 @@ public class MovementControl : MonoBehaviour
 
             pressedDash = false;
             pressedDash = CrossPlatformInputManager.GetButtonDown("Fire1"); /*Esto es joystick button 5 en project settings - input*/
-            if (pressedDash)
+            if (pressedDash && dashCooldownLeft < 0)
             {
                 dashDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
                 dashTimeLeft = dashDuration;
