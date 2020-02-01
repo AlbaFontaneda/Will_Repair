@@ -6,10 +6,12 @@ public class Death : MonoBehaviour
 {
     [SerializeField] Transform spawnPoint = null;
     private SpriteRenderer spriteRenderer;
+    private MovementControl movementControl;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        movementControl = gameObject.GetComponent<MovementControl>();
     }
 
     public void Spawn()
@@ -39,6 +41,7 @@ public class Death : MonoBehaviour
         this.gameObject.transform.position = spawnPoint.position;
         this.gameObject.SetActive(true);
 
+        movementControl.ResetMovement();
         spriteRenderer.enabled = true;
         yield return new WaitForSeconds(.1f);
     }
