@@ -46,14 +46,14 @@ public class MovementControl : MonoBehaviour
         {
             moveTowardsX = 0;
             moveTowardsY = 0;
-            moveTowardsX = CrossPlatformInputManager.GetAxis("Horizontal");
-            moveTowardsY = CrossPlatformInputManager.GetAxis("Vertical");
+            moveTowardsX = Input.GetAxis("Horizontal");
+            moveTowardsY = Input.GetAxis("Vertical");
 
             currentSpeed.x = Mathf.MoveTowards(currentSpeed.x, moveTowardsX, changeRatePerSecond);
             currentSpeed.y = Mathf.MoveTowards(currentSpeed.y, moveTowardsY, changeRatePerSecond);
 
             pressedDash = false;
-            pressedDash = CrossPlatformInputManager.GetButtonDown("Fire1"); /*Esto es joystick button 5 en project settings - input*/
+            pressedDash = Input.GetButtonDown("Fire1"); /*Esto es joystick button 5 en project settings - input*/
             if (pressedDash && dashCooldownLeft < 0)
             {
                 dashDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
