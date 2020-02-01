@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(scene, LoadSceneMode.Additive);
         }
 
-        _player.transform.position = spawnPoint;
+        m_character.transform.position = spawnPoint;
 
         _camera.transform.position = cameraPosition;
     }
