@@ -120,6 +120,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &17313778
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2441,6 +2442,8 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19979864, y: 1.0058506}
   m_EdgeRadius: 0
+=======
+>>>>>>> 40e351113c1cb57fb5da8d976abe2979952a517b
 --- !u!1001 &4762112530983925302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2448,40 +2451,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4762112531423864361, guid: b174142d7b4525142a928a8801e8acdb,
-        type: 3}
-      propertyPath: m_Name
-      value: EstomagoNivel
-      objectReference: {fileID: 0}
-    - target: {fileID: 1249205971295946628, guid: b174142d7b4525142a928a8801e8acdb,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 1249205971295946628, guid: b174142d7b4525142a928a8801e8acdb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 1249205971295946628, guid: b174142d7b4525142a928a8801e8acdb,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.85
-      objectReference: {fileID: 0}
     - target: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0672512
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27742994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.46753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
@@ -2523,71 +2506,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2378198343808520454, guid: b174142d7b4525142a928a8801e8acdb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.97
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378198343808520454, guid: b174142d7b4525142a928a8801e8acdb,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 7320269380565937545, guid: b174142d7b4525142a928a8801e8acdb,
+    - target: {fileID: 4762112531423864361, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
       propertyPath: m_Name
-      value: Collision1
+      value: EstomagoNivel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b174142d7b4525142a928a8801e8acdb, type: 3}
---- !u!4 &4762112530983925303 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2447518009845145254, guid: b174142d7b4525142a928a8801e8acdb,
-    type: 3}
-  m_PrefabInstance: {fileID: 4762112530983925302}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4762112530983925304 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7320269380565937545, guid: b174142d7b4525142a928a8801e8acdb,
-    type: 3}
-  m_PrefabInstance: {fileID: 4762112530983925302}
-  m_PrefabAsset: {fileID: 0}
---- !u!60 &4762112530983925305
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4762112530983925304}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -1.3687785, y: 0.9344771}
-      - {x: -1.6329482, y: -1.976029}
-      - {x: -0.13601327, y: -1.1757922}
-      - {x: 0.5083506, y: -0.5013614}
-      - {x: 0.8962047, y: 0.3798473}
-      - {x: 0.90953827, y: 0.37810624}
-      - {x: 0.91468334, y: 0.6198895}
-      - {x: 0.9510565, y: 2.2157087}
---- !u!4 &4762112530983925306 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
-    type: 3}
-  m_PrefabInstance: {fileID: 4762112530983925302}
-  m_PrefabAsset: {fileID: 0}
