@@ -15,7 +15,8 @@ public class CountDown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ButtonSequencer buttonSeq = gameObject.GetComponentInParent<ButtonSequencer>();
+        buttonSeq.createSequence();
     }
 
     void Update()
@@ -24,6 +25,7 @@ public class CountDown : MonoBehaviour
         float seconds = Mathf.Round(timeLeft);
 
         Blink blink = GameObject.FindGameObjectsWithTag("Warning")[0].GetComponent<Blink>();
+        
 
         /*
         Cerebro: -80, -50
@@ -37,6 +39,7 @@ public class CountDown : MonoBehaviour
         if (seconds == 60)
         {
             blink.StartBlink(-80f, -50f);
+           
         }
         if (seconds == 58)
         {
