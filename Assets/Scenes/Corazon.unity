@@ -375,6 +375,37 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 1874622689}
+    - target: {fileID: 1117354360717836263, guid: ab4eb1c38fa504243986a137e26d7294,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117354360717836262, guid: ab4eb1c38fa504243986a137e26d7294,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308026005, guid: ab4eb1c38fa504243986a137e26d7294, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308026005, guid: ab4eb1c38fa504243986a137e26d7294, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308026005, guid: ab4eb1c38fa504243986a137e26d7294, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1308026005, guid: ab4eb1c38fa504243986a137e26d7294, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758666074781252266, guid: ab4eb1c38fa504243986a137e26d7294,
+        type: 3}
+      propertyPath: dashDuration
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab4eb1c38fa504243986a137e26d7294, type: 3}
 --- !u!4 &424969189 stripped
@@ -564,6 +595,24 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 181964139}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1308026005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308026004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 538ea6197c5c7134281384c8ac71520b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashDuration: 0.25
+  dashSpeed: 3
+  dashCooldownTime: 0.5
+  speedMultiplier: 0.025
+  timeFromZeroToMax: 0.6
+  currentSpeed: {x: 0, y: 0, z: 0}
 --- !u!95 &1308026013
 Animator:
   serializedVersion: 3
