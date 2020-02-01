@@ -37,7 +37,7 @@ public class steamDamage : MonoBehaviour
         GameObject colObject = col.gameObject;
         if (colObject.gameObject.tag == "Player")
         {
-            Debug.Log("nanobot fuera");
+            Debug.Log("Matar al nanobot");
             FlashSprite flashSprite = colObject.GetComponent<FlashSprite>();
 
             flashSprite.enabledFlash(false);
