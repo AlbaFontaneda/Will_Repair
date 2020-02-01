@@ -40,6 +40,8 @@ public class ButtonSequencer : MonoBehaviour
             else if (Input.GetButtonDown("BotonIzquierda")) result = checkPressedButton(eButtons.LEFT);
             else if (Input.GetButtonDown("BotonDerecha")) result = checkPressedButton(eButtons.RIGHT);
 
+            Debug.Log(result + " " + currentIndex + " " + sequenceSize);
+
             // Si hemos completado la secuencia
             if(result && currentIndex== sequenceSize){
                 sequenceCompleted = true;
@@ -124,6 +126,7 @@ public class ButtonSequencer : MonoBehaviour
             //OK
             updateButton(currentIndex, sequence[currentIndex], eStatus.OK);
             currentIndex++;
+            result = true;
         }
         else
         {
