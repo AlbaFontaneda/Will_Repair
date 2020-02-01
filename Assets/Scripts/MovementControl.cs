@@ -8,6 +8,7 @@ public class MovementControl : MonoBehaviour
     // Start is called before the first frame update
     private bool pressedDash = false;
     private bool dashing = false;
+    private bool slowed = false;
     private Vector3 dashDir;
     public float dashDuration = 0.25f;
     private float dashTimeLeft;
@@ -42,6 +43,14 @@ public class MovementControl : MonoBehaviour
         pushbackMovement = direction*dashSpeed;
         currentPushbackCooldown = pushbackTime;
         currentSpeed = new Vector3(0, 0, 0);
+    }
+
+    public void SlowMotion(bool isSlow)
+    {
+        if (isSlow)
+            speedMultiplier /= 4;
+        else
+            speedMultiplier *= 4;
     }
 
     // Update is called once per frame
