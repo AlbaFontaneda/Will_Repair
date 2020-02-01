@@ -14,6 +14,6 @@ public class TriggerChangeScene : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        _manager.ChangeScene(_scene, _spawnTransform.position, _cameraTransform.position);
+        _manager.ChangeSceneAdditive(_scene, _spawnTransform.position, _cameraTransform.position);
     }
 }
