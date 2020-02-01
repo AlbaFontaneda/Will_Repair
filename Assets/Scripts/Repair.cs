@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class Repair : MonoBehaviour
 {
-    private FlyingCharacter2D m_Character;
-
-    void Awake()
-    {
-        m_Character = GameObject.FindObjectOfType<FlyingCharacter2D>();
-
-    }
+    public EnumZonas zona;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +23,10 @@ public class Repair : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Tumor");
+            FlyingCharacter2D m_Character = other.GetComponent<FlyingCharacter2D>();
 
             // activar mini juego del character
+
             m_Character.StartGame(this);
         }
     }
