@@ -127,25 +127,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 551343141822318171, guid: 9be3b9b087e0db8438bce29ebb25869b,
-        type: 3}
-      propertyPath: positionZ
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 551343142711279637, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_Name
       value: HUD
-      objectReference: {fileID: 0}
-    - target: {fileID: 551343142711279640, guid: 9be3b9b087e0db8438bce29ebb25869b,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1558960418}
-    - target: {fileID: 551343142711279640, guid: 9be3b9b087e0db8438bce29ebb25869b,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
@@ -266,6 +251,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.011111111
+      objectReference: {fileID: 0}
+    - target: {fileID: 551343142711279640, guid: 9be3b9b087e0db8438bce29ebb25869b,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1558960418}
+    - target: {fileID: 551343142711279640, guid: 9be3b9b087e0db8438bce29ebb25869b,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 551343141822318171, guid: 9be3b9b087e0db8438bce29ebb25869b,
+        type: 3}
+      propertyPath: positionZ
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be3b9b087e0db8438bce29ebb25869b, type: 3}
@@ -443,6 +443,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8229963720679240714, guid: 892b330d15a3c54459439ef78b21cca2,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
     - target: {fileID: 8229963720679240712, guid: 892b330d15a3c54459439ef78b21cca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -503,11 +508,6 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1558960418}
-    - target: {fileID: 8229963720679240714, guid: 892b330d15a3c54459439ef78b21cca2,
-        type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 892b330d15a3c54459439ef78b21cca2, type: 3}
 --- !u!1001 &9073742150703299044
@@ -521,11 +521,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TriggerEscenaInicial
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
-        type: 3}
-      propertyPath: _scene
-      value: CerebroScene
       objectReference: {fileID: 0}
     - target: {fileID: 9073742151324593749, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
@@ -581,6 +576,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
+        type: 3}
+      propertyPath: _scene
+      value: Corazon 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84630a637eba16241b3b150cf1ea1e95, type: 3}
