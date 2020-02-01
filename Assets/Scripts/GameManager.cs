@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _player;
+    [SerializeField] private GameObject _player = null;
 
-    [SerializeField] private Camera _camera;
+    [SerializeField] private Camera _camera = null;
 
-    public void ChangeScene(string scene, Vector2 spawnPoint, Vector2 cameraPosition)
+    public void ChangeSceneAdditive(string scene, Vector2 spawnPoint, Vector2 cameraPosition)
     {
         if (!SceneManager.GetSceneByName(scene).isLoaded)
         {
@@ -19,5 +19,15 @@ public class GameManager : MonoBehaviour
         _player.transform.position = spawnPoint;
 
         _camera.transform.position = cameraPosition;
+    }
+
+    public void ChangeScene(string scene)
+    {
+        SceneManager.LoadScene(scene);
+    }
+
+    public void ExitApplication()
+    {
+        Application.Quit();
     }
 }

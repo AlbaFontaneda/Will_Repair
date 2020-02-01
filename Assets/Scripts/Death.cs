@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Death : MonoBehaviour
 {
-    [SerializeField] Transform spawnPoint;
+    [SerializeField] Transform spawnPoint = null;
     // Start is called before the first frame update
     void Start()
     {
