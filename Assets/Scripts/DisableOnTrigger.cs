@@ -6,11 +6,12 @@ public class DisableOnTrigger : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-
+        StartCoroutine(DisableOnEndOfFrame());
     }
 
     private IEnumerator DisableOnEndOfFrame()
     {
-        return null;
+        yield return new WaitForEndOfFrame();
+        this.gameObject.SetActive(false);
     }
 }
