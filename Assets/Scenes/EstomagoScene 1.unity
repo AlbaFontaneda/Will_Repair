@@ -127,35 +127,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1249205971295946628, guid: b174142d7b4525142a928a8801e8acdb,
+    - target: {fileID: 4762112531423864361, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 1249205971295946628, guid: b174142d7b4525142a928a8801e8acdb,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: 1249205971295946628, guid: b174142d7b4525142a928a8801e8acdb,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.85
+      propertyPath: m_Name
+      value: EstomagoNivel
       objectReference: {fileID: 0}
     - target: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0672512
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.27742994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.46753
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4762112531423864342, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
@@ -197,10 +187,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4762112531423864361, guid: b174142d7b4525142a928a8801e8acdb,
+    - target: {fileID: 4762112531542387410, guid: b174142d7b4525142a928a8801e8acdb,
         type: 3}
-      propertyPath: m_Name
-      value: EstomagoNivel
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591165899609925642, guid: b174142d7b4525142a928a8801e8acdb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b174142d7b4525142a928a8801e8acdb, type: 3}

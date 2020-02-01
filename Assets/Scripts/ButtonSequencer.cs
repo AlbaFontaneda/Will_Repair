@@ -9,7 +9,6 @@ public class ButtonSequencer : MonoBehaviour
     public enum eButtons { UP, DOWN, LEFT, RIGHT };
     public enum eStatus { BASE, OK, KO };
 
-
     public Sprite[] upSprites;
     public Sprite[] downSprites;
     public Sprite[] leftSprites;
@@ -20,6 +19,7 @@ public class ButtonSequencer : MonoBehaviour
     int currentIndex = 0;
 
     private bool sequenceCreated = false;
+    private bool sequenceCompleted = false;
 
     int sequenceSize;
     // Start is called before the first frame update
@@ -31,26 +31,39 @@ public class ButtonSequencer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {        
+    {   
+        if (Input.anyKeyDown)
+        {
+            bool result = false;
+            if (Input.GetButtonDown("BotonArriba")) result = checkPressedButton(eButtons.UP);
+            else if (Input.GetButtonDown("BotonAbajo")) result = checkPressedButton(eButtons.DOWN);
+            else if (Input.GetButtonDown("BotonIzquierda")) result = checkPressedButton(eButtons.LEFT);
+            else if (Input.GetButtonDown("BotonDerecha")) result = checkPressedButton(eButtons.RIGHT);
 
+            Debug.Log(result + " " + currentIndex + " " + sequenceSize);
+
+            // Si hemos completado la secuencia
+            if(result && currentIndex== sequenceSize){
+                sequenceCompleted = true;
+                hideSequence();
+            }
+        }
     }
 
     public void createSequence()
     {
+        currentIndex = 0;
+        sequenceCompleted = false;
         for (int i = 0; i < sequenceSize; ++i)
         {
             sequence[i] = Random.Range(0, sequenceSize);
         }
-        Debug.Log("Secuencia no creada", this);
+        //Debug.Log("Secuencia no creada", this);
         showSequence();
-        
-        Debug.Log("Secuencia creada", this);
+        //Debug.Log("Secuencia creada", this);
     }
     public void showSequence()
     {
-        //for (int i = 0; i < sequenceSize; ++i)
-        //showButton(i, sequence[i], eStatus.BASE);
-        //StartCoroutine(showButton(i, sequence[i], eStatus.BASE));
         StartCoroutine(showButtons(.5f));
     }
 
@@ -111,25 +124,27 @@ public class ButtonSequencer : MonoBehaviour
         if(button == (eButtons)sequence[currentIndex])
         {
             //OK
-            //StartCoroutine(showButton(currentIndex, sequence[currentIndex], eStatus.OK));
             updateButton(currentIndex, sequence[currentIndex], eStatus.OK);
+            currentIndex++;
+            result = true;
         }
         else
         {
             //KO
-            //Mostrar error x segundos
-            //StartCoroutine(showButton(currentIndex, sequence[currentIndex], eStatus.KO));
-            updateButton(currentIndex, sequence[currentIndex], eStatus.KO);
-            //Resetear codigo
-            resetSequence();
+            //Meter un delay
+            StartCoroutine(delayOnError(.5f));
+
         }
         return result;
     }
-    /*
-    IEnumerator WaitCoroutine()
+
+    IEnumerator delayOnError(float time)
     {
-        //yield on a new YieldInstruction that waits for 5 seconds.
-        yield return new WaitForSeconds(2f);
+        //Mostrar error x segundos
+        updateButton(currentIndex, sequence[currentIndex], eStatus.KO);
+        //Start the coroutine we define below named ExampleCoroutine.
+        yield return new WaitForSeconds(time);
+        //Resetear codigo
+        resetSequence();
     }
-    */
 }

@@ -18,8 +18,12 @@ public class MovementControl : MonoBehaviour
     public float timeFromZeroToMax = 0.6f;
     public Vector3 currentSpeed;
 
-    public float deathCooldownTime = 3f;
+    public float deathCooldownTime = 0.2f;
     private float currentDeathCooldown = 0;
+
+    public float pushbackTime = 0.5f;
+    private float currentPushbackCooldown;
+    private Vector3 pushbackMovement;
 
     private float moveTowardsX = 0, moveTowardsY = 0;
 
@@ -33,6 +37,13 @@ public class MovementControl : MonoBehaviour
         currentDeathCooldown = deathCooldownTime;
     }
 
+    public void Pushback(Vector3 direction)
+    {
+        pushbackMovement = direction*dashSpeed;
+        currentPushbackCooldown = pushbackTime;
+        currentSpeed = new Vector3(0, 0, 0);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -41,6 +52,23 @@ public class MovementControl : MonoBehaviour
         {
             currentDeathCooldown -= Time.deltaTime;
             currentSpeed = new Vector3(0, 0, 0);
+            return;
+        }
+
+        if (currentPushbackCooldown > 0)
+        {
+            currentPushbackCooldown -= Time.deltaTime;
+            if (dashing)
+            {
+                transform.Translate(pushbackMovement.x * 2 * Time.deltaTime, pushbackMovement.y * 2 * Time.deltaTime, 0);
+            }
+            transform.Translate(pushbackMovement.x * Time.deltaTime, pushbackMovement.y * Time.deltaTime, 0);
+            
+            if (currentPushbackCooldown < 0.1)
+            {
+                dashing = false;
+            }
+
             return;
         }
 

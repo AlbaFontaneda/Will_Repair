@@ -19,18 +19,4 @@ public class steamDamage : MonoBehaviour
         }
         
     }
-    // Nah, que si nos tocan una vez muramos
-    /*void OnTriggerExit2D(Collider2D col)
-    {
-        Debug.Log("Matar al nanobot");
-        GameObject colObject = col.gameObject;
-        if (colObject.gameObject.tag == "Player")
-        {
-            
-            FlashSprite flashSprite = colObject.GetComponent<FlashSprite>();
-
-            flashSprite.enabledFlash(false);
-        }
-
-    }*/
 }

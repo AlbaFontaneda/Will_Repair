@@ -193,7 +193,7 @@ MonoBehaviour:
   dashDuration: 0.2
   dashSpeed: 2.5
   dashCooldownTime: 0.5
-  speedMultiplier: 0.04
+  speedMultiplier: 2.5
   timeFromZeroToMax: 0.6
   currentSpeed: {x: 0, y: 0, z: 0}
   deathCooldownTime: 0.1
