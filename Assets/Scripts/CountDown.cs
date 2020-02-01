@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CountDown : MonoBehaviour
@@ -45,7 +46,7 @@ public class CountDown : MonoBehaviour
         text.text = ((int)(seconds/60)).ToString().PadLeft(2, '0') + ":"+(seconds%60).ToString().PadLeft(2, '0');
         if (timeLeft < 0)
         {
-            Application.LoadLevel("gameOver");
+            SceneManager.LoadScene("gameOver");
         }
     }
 }
