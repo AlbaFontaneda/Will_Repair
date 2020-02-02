@@ -516,6 +516,11 @@ PrefabInstance:
       propertyPath: timeLeft
       value: 62000
       objectReference: {fileID: 0}
+    - target: {fileID: 551343141822318168, guid: 9be3b9b087e0db8438bce29ebb25869b,
+        type: 3}
+      propertyPath: maxTimeLeft
+      value: 6000
+      objectReference: {fileID: 0}
     - target: {fileID: 551343142711279640, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_Camera
