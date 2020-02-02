@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] private Camera _camera = null;
+    [SerializeField] private AudioSource _audioSource = null;
 
     // En lugar de arrastrar los tumores cada vez que se añada uno
     // los vamos a coger automaticamente de la escena
@@ -85,6 +86,7 @@ public class GameManager : MonoBehaviour
     public void ChangeSceneAdditive(string scene, Vector3 spawnPoint, Vector3 cameraPosition)
     {
         Debug.Log("ChangeSceneAdditive: " + scene);
+
         Scene escena = SceneManager.GetSceneByName(scene);
         if (!escena.isLoaded)
         {
