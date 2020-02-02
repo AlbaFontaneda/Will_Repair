@@ -65,5 +65,7 @@ public class CountDown : MonoBehaviour
     }
 
     public float getTimeLeft() { return timeLeft; }
+    public float getMaxTime() { return maxTimeLeft; }
+
     public void resetTimeLeft() { timeLeft = maxTimeLeft; }
 }
