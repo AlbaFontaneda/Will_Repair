@@ -30,10 +30,18 @@ public class Repair : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            FlyingCharacter2D m_Character = other.GetComponent<FlyingCharacter2D>();
-
             // activar mini juego del character para este tumor
-            game.RepairCurrentTumor(this);
+            game.MiniGame(this);
+        }
+    }
+
+    // when the GameObjects collider arrange for this GameObject to travel to the left of the screen
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            // activar mini juego del character para este tumor
+            game.StopMiniGame(this);
         }
     }
 
