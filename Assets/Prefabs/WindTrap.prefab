@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2692038830642508270
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5755963578706213619}
+  m_Layer: 0
+  m_Name: Base
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5755963578706213619
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2692038830642508270}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4724199277667803901}
+  - {fileID: 4724199277987953671}
+  m_Father: {fileID: 4724199279057101201}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4724199277667803902
 GameObject:
   m_ObjectHideFlags: 0
@@ -25,11 +57,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4724199277667803902}
-  m_LocalRotation: {x: 0.5744421, y: 0.2854103, z: -0.7339312, w: 0.22338836}
-  m_LocalPosition: {x: 0.00000035762787, y: 0, z: 0}
+  m_LocalRotation: {x: 0.5744421, y: 0.2854103, z: -0.7339312, w: 0.22338834}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4724199279057101201}
+  m_Father: {fileID: 5755963578706213619}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 137.5, y: 103.9, z: 0}
 --- !u!198 &4724199277667803899
@@ -4778,11 +4810,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4724199277987953672}
-  m_LocalRotation: {x: -0, y: -0, z: -0.3929173, w: 0.9195738}
-  m_LocalPosition: {x: -0.83, y: -0.77, z: 0}
-  m_LocalScale: {x: 1, y: 2.7952, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.39291734, w: 0.9195738}
+  m_LocalPosition: {x: -0.83000004, y: -0.77, z: 0}
+  m_LocalScale: {x: 1, y: 2.7951994, z: 1}
   m_Children: []
-  m_Father: {fileID: 4724199279057101201}
+  m_Father: {fileID: 5755963578706213619}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -46.272003}
 --- !u!61 &4724199277987953669
@@ -4832,6 +4864,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4724199279057101201}
+  - component: {fileID: 2427505625046231290}
   m_Layer: 0
   m_Name: WindTrap
   m_TagString: Untagged
@@ -4850,8 +4883,23 @@ Transform:
   m_LocalPosition: {x: 3.99, y: -0.92, z: -7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4724199277667803901}
-  - {fileID: 4724199277987953671}
+  - {fileID: 5755963578706213619}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -14.561001}
+--- !u!114 &2427505625046231290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4724199279057101202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d9fd7ebb5c6073479fe5c6f208ac4df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cycleTime: 5
+  air: {fileID: 2692038830642508270}
+  particleSystem1: {fileID: 4724199277667803899}
+  collision: {fileID: 4724199277987953672}
