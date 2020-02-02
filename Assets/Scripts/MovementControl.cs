@@ -5,6 +5,9 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class MovementControl : MonoBehaviour
 {
+
+    [SerializeField] public AudioClip _audioClip = null;
+
     // Start is called before the first frame update
     private bool pressedDash = false;
     private bool dashing = false;
@@ -32,10 +35,13 @@ public class MovementControl : MonoBehaviour
     private float slowedCooldown = 0.4f;
     private float currentSlowedCooldown = 0f;
 
+    private AudioSource audioSource;
+
     void Start()
     {
         currentSpeed = new Vector3(0, 0, 0);
         auxSpeedMultiplier = speedMultiplier;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     public void ResetMovement() {
@@ -119,6 +125,8 @@ public class MovementControl : MonoBehaviour
             pressedDash = Input.GetButtonDown("Fire1"); /*Esto es joystick button 5 en project settings - input*/
             if (pressedDash && dashCooldownLeft < 0)
             {
+                audioSource.clip = _audioClip;
+                audioSource.Play();
                 dashDir = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
                 dashTimeLeft = dashDuration;
                 dashing = true;
@@ -138,31 +146,6 @@ public class MovementControl : MonoBehaviour
         transform.Translate(currentSpeed.x*speedMultiplier * Time.deltaTime, currentSpeed.y*speedMultiplier * Time.deltaTime, 0);
 
         return;
-
-
-        /* ***************
-         * TESTS: INERTIA 
-         * ***************
-         * 
-         * float moveTowards = 0;
-        float changeRatePerSecond = 1 / timeFromZeroToMax * Time.deltaTime;
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            moveTowards = -1.0f;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            moveTowards = 1.0f;
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift)){
-            changeRatePerSecond *= 2;
-        }
-
-        speed = Mathf.MoveTowards(speed, moveTowards, changeRatePerSecond);
-        transform.Translate(speed, 0, 0);*/
 
     }
 }
