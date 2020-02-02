@@ -184,6 +184,9 @@ public class GameManager : MonoBehaviour
         _audioSource.clip = _audioClips[2];
         _audioSource.Play();
 
+        Debug.LogWarning("enemies " + enemies.Count);
+        Debug.LogWarning("tumores " + tumores.Count);
+
         // quitar tumor de la lista actual
         enemies.Remove(currentRepair);
         tumores.Remove(currentRepair);
@@ -276,7 +279,11 @@ public class GameManager : MonoBehaviour
             {
                 tumor.gameObject.SetActive(true);
                 // añadir a la lista de tumores actual
-                enemies.Add(tumor);
+                if (!enemies.Contains(tumor))
+                {
+                    enemies.Add(tumor);
+                }
+                
             }
         }
 
