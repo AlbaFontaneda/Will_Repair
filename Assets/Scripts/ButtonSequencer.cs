@@ -20,6 +20,7 @@ public class ButtonSequencer : MonoBehaviour
 
     private bool sequenceCreated = false;
     private bool sequenceCompleted = false;
+    private bool isSequenceInit = false;
     private bool isXAxisInUse = false;
     private bool isYAxisInUse = false;
 
@@ -42,64 +43,67 @@ public class ButtonSequencer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float dpadX = Input.GetAxis("DPadX");
-        float dpadY = Input.GetAxis("DpadY");
-
-        if (Input.anyKeyDown)
+        if (isSequenceInit)
         {
-            bool result = false;
+            float dpadX = Input.GetAxis("DPadX");
+            float dpadY = Input.GetAxis("DpadY");
 
-            if (Input.GetButtonDown("BotonArriba")) result = checkPressedButton(eButtons.UP);
-            else if (Input.GetButtonDown("BotonAbajo")) result = checkPressedButton(eButtons.DOWN);
-            else if (Input.GetButtonDown("BotonIzquierda")) result = checkPressedButton(eButtons.LEFT);
-            else if (Input.GetButtonDown("BotonDerecha")) result = checkPressedButton(eButtons.RIGHT);
-
-            manageSequence(result);
-        }
-
-
-        if (dpadY != 0)
-        {
-            if (!isYAxisInUse && dpadY == 1)
+            if (Input.anyKeyDown)
             {
-                Debug.Log("up");
-                isYAxisInUse = true;
-                bool result = checkPressedButton(eButtons.UP);
+                bool result = false;
+
+                if (Input.GetButtonDown("BotonArriba")) result = checkPressedButton(eButtons.UP);
+                else if (Input.GetButtonDown("BotonAbajo")) result = checkPressedButton(eButtons.DOWN);
+                else if (Input.GetButtonDown("BotonIzquierda")) result = checkPressedButton(eButtons.LEFT);
+                else if (Input.GetButtonDown("BotonDerecha")) result = checkPressedButton(eButtons.RIGHT);
+
                 manageSequence(result);
             }
-            else if (!isYAxisInUse && dpadY == -1)
-            {
-                Debug.Log("down");
-                isYAxisInUse = true;
-                bool result = checkPressedButton(eButtons.DOWN);
-                manageSequence(result);
-            }
-        }
-        else
-        {
-            isYAxisInUse = false;
-        }
 
-        if (dpadX != 0)
-        {
-            if (!isXAxisInUse && dpadX == -1)
+
+            if (dpadY != 0)
             {
-                Debug.Log("left");
-                isXAxisInUse = true;
-                bool result = checkPressedButton(eButtons.LEFT);
-                manageSequence(result);
+                if (!isYAxisInUse && dpadY == 1)
+                {
+                    Debug.Log("up");
+                    isYAxisInUse = true;
+                    bool result = checkPressedButton(eButtons.UP);
+                    manageSequence(result);
+                }
+                else if (!isYAxisInUse && dpadY == -1)
+                {
+                    Debug.Log("down");
+                    isYAxisInUse = true;
+                    bool result = checkPressedButton(eButtons.DOWN);
+                    manageSequence(result);
+                }
             }
-            else if (!isXAxisInUse && dpadX == 1)
+            else
             {
-                Debug.Log("right");
-                isXAxisInUse = true;
-                bool result = checkPressedButton(eButtons.RIGHT);
-                manageSequence(result);
+                isYAxisInUse = false;
             }
-        }
-        else
-        {
-            isXAxisInUse = false;
+
+            if (dpadX != 0)
+            {
+                if (!isXAxisInUse && dpadX == -1)
+                {
+                    Debug.Log("left");
+                    isXAxisInUse = true;
+                    bool result = checkPressedButton(eButtons.LEFT);
+                    manageSequence(result);
+                }
+                else if (!isXAxisInUse && dpadX == 1)
+                {
+                    Debug.Log("right");
+                    isXAxisInUse = true;
+                    bool result = checkPressedButton(eButtons.RIGHT);
+                    manageSequence(result);
+                }
+            }
+            else
+            {
+                isXAxisInUse = false;
+            }
         }
     }
 
@@ -120,6 +124,7 @@ public class ButtonSequencer : MonoBehaviour
 
     public void createSequence()
     {
+        isSequenceInit = true;
         currentIndex = 0;
         sequenceCompleted = false;
         for (int i = 0; i < sequenceSize; ++i)
@@ -137,6 +142,7 @@ public class ButtonSequencer : MonoBehaviour
 
     public void hideSequence()
     {
+        isSequenceInit = false;
         for (int i = 0; i < sequenceSize; ++i)
             hideButton(i);
     }
