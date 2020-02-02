@@ -34,11 +34,18 @@ public class ButtonSequencer : MonoBehaviour
     {   
         if (Input.anyKeyDown)
         {
+            float dpadX = Input.GetAxis("Dpad X");
+            float dpadY = Input.GetAxis("Dpad Y");
+
             bool result = false;
             if (Input.GetButtonDown("BotonArriba")) result = checkPressedButton(eButtons.UP);
             else if (Input.GetButtonDown("BotonAbajo")) result = checkPressedButton(eButtons.DOWN);
             else if (Input.GetButtonDown("BotonIzquierda")) result = checkPressedButton(eButtons.LEFT);
             else if (Input.GetButtonDown("BotonDerecha")) result = checkPressedButton(eButtons.RIGHT);
+            else if(dpadY == 1) result = checkPressedButton(eButtons.UP);
+            else if (dpadY == -1) result = checkPressedButton(eButtons.DOWN);
+            else if (dpadX == -1) result = checkPressedButton(eButtons.LEFT);
+            else if (dpadX == 1) result = checkPressedButton(eButtons.RIGHT);
 
             Debug.Log(result + " " + currentIndex + " " + sequenceSize);
 
