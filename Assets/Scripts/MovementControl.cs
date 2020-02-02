@@ -27,9 +27,15 @@ public class MovementControl : MonoBehaviour
 
     private float moveTowardsX = 0, moveTowardsY = 0;
 
+    private bool isSlowing = false;
+    private float auxSpeedMultiplier;
+    private float slowedCooldown = 0.4f;
+    private float currentSlowedCooldown = 0f;
+
     void Start()
     {
         currentSpeed = new Vector3(0, 0, 0);
+        auxSpeedMultiplier = speedMultiplier;
     }
 
     public void ResetMovement() {
@@ -42,6 +48,20 @@ public class MovementControl : MonoBehaviour
         pushbackMovement = direction*dashSpeed;
         currentPushbackCooldown = pushbackTime;
         currentSpeed = new Vector3(0, 0, 0);
+    }
+
+    public void SlowMotion(bool isSlow)
+    {
+        if (isSlow)
+        {
+            speedMultiplier /= 4;
+        }
+        else
+        {
+            speedMultiplier *= 2f;
+            currentSlowedCooldown = slowedCooldown;
+            isSlowing = true;
+        }
     }
 
     // Update is called once per frame
@@ -104,6 +124,15 @@ public class MovementControl : MonoBehaviour
                 dashing = true;
             }
         }
+
+        if (currentSlowedCooldown > 0 && isSlowing)
+            currentSlowedCooldown -= Time.deltaTime;
+        else if (currentSlowedCooldown <= 0 && isSlowing)
+        {
+            isSlowing = false;
+            speedMultiplier = auxSpeedMultiplier;
+        }
+        
         
 
         transform.Translate(currentSpeed.x*speedMultiplier * Time.deltaTime, currentSpeed.y*speedMultiplier * Time.deltaTime, 0);
