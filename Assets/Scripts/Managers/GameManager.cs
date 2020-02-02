@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour
             // Si hemos reparado la zona corazón nos hemos pasado el juego
             if ((int)currentTarget > 3)
             {
-                Debug.Log("YOU WIN!");
+                Debug.LogWarning("YOU WIN!");
             }
         }
     }
