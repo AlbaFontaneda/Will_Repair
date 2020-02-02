@@ -267,16 +267,6 @@ PrefabInstance:
       propertyPath: positionZ
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 1588861618336530384, guid: 9be3b9b087e0db8438bce29ebb25869b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -160
-      objectReference: {fileID: 0}
-    - target: {fileID: 1588861618336530384, guid: 9be3b9b087e0db8438bce29ebb25869b,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9be3b9b087e0db8438bce29ebb25869b, type: 3}
 --- !u!1001 &603442399
@@ -590,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
       propertyPath: _scene
-      value: Corazon 1
+      value: EstomagoScene 1
       objectReference: {fileID: 0}
     - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
