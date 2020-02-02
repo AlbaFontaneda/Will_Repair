@@ -16,7 +16,7 @@ public class Repair : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        game.RegistraTumor(this);
     }
 
     // Update is called once per frame

@@ -29,7 +29,6 @@ public class ECGScript : MonoBehaviour
 
     Gradient gradient_ok;
     Gradient gradient_bad;
-    Camera cam;
 
     public float[] ecgpoints = {
         1.0f,0.9003f,0.3586f,0.0515f,0.0466f,0.1268f,0.1333f,0.1191f,0.1106f,0.113f,
@@ -48,7 +47,6 @@ public class ECGScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam = GameObject.FindGameObjectsWithTag("MainCamera")[0].GetComponent<Camera>();
         countDown = gameObject.GetComponent(typeof(CountDown)) as CountDown;
 
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();

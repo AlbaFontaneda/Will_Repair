@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     // En lugar de arrastrar los tumores cada vez que se añada uno
     // los vamos a coger automaticamente de la escena
+    List<Repair> tumores;
     List<Repair> enemies;
 
     private GameObject m_character;
@@ -26,6 +27,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         m_character = GameObject.FindWithTag("Player");
+        tumores = new List<Repair>();
         enemies = new List<Repair>();
         
         //blinkWarning = GameObject.FindObjectOfType<Blink>();
@@ -72,6 +74,9 @@ public class GameManager : MonoBehaviour
         currentTarget = Zona.CEREBRO;
         currentLocation = Zona.CORAZON;
 
+        // desactiva los tumores en corazon al arrancar
+        activarTumores();
+
         actualizaWarning();
 
         actualizaPlayerLocation();
@@ -79,19 +84,43 @@ public class GameManager : MonoBehaviour
 
     public void ChangeSceneAdditive(string scene, Vector3 spawnPoint, Vector3 cameraPosition)
     {
-        if (!SceneManager.GetSceneByName(scene).isLoaded)
+        Debug.Log("ChangeSceneAdditive: " + scene);
+        Scene escena = SceneManager.GetSceneByName(scene);
+        if (!escena.isLoaded)
         {
-            SceneManager.LoadScene(scene, LoadSceneMode.Additive);
+            var parameters = new LoadSceneParameters(LoadSceneMode.Additive);
+            Scene sce = SceneManager.LoadScene(scene, parameters);
         }
 
+        // muevo el personaje
         m_character.transform.position = spawnPoint;
-
+        // muevo camara
         _camera.transform.position = cameraPosition;
+
+        // actualizo la localizacion del personaje
+        if (scene == "Corazon 1")
+        {
+            currentLocation = Zona.CORAZON;
+        }
+        else if (scene == "EstomagoScene 1")
+        {
+            currentLocation = Zona.ESTOMAGO;
+        }
+        else if (scene == "CerebroScene")
+        {
+            currentLocation = Zona.CEREBRO;
+        }
+        else if (scene == "PulmonScene")
+        {
+            currentLocation = Zona.PULMONES;
+        }
+
+        actualizaPlayerLocation();
 
         // intenta activar los tumores si entramos en la zona de objetivo actual
         activarTumores();
 
-        actualizaPlayerLocation();
+        
     }
 
     public void ChangeScene(string scene)
@@ -123,6 +152,7 @@ public class GameManager : MonoBehaviour
     {
         // quitar tumor de la lista actual
         enemies.Remove(currentRepair);
+        tumores.Remove(currentRepair);
         // destruir el tumor
         Destroy(currentRepair.gameObject);
         // si hemos reparado todos los tumores cambiar de zona objetivo
@@ -176,34 +206,38 @@ public class GameManager : MonoBehaviour
 
     private void activarTumores()
     {
+        Debug.Log("ACTIVAR TUMORES");
         // reseteamos la lista de enemigos
-        enemies = new List<Repair>();
+        //enemies = new List<Repair>();
         // Comprobar si hay que activar los tumores de la escena
         // Obtenemos todos los tumores y nos quedamos con la escena actual
-        Repair[] tumores = GameObject.FindObjectsOfType<Repair>();
+        //Repair[] tumores = GameObject.FindObjectsOfType<Repair>();
+
+        
+        //Repair[] tumores = GameObject.FindGameObjectWithTag("Tumor");
+
+        
         foreach (Repair tumor in tumores)
         {
-            
             // Por defecto desactivar todos los tumores
             tumor.gameObject.SetActive(false);
 
-            Zona zonaInt = tumor.zona;
-            Debug.Log("Tenemos un tumor de zona: "+ zonaInt);
             // Activar los tumores de la zona objetivo
-            if (zonaInt == currentTarget)
+            if (tumor.zona == currentTarget)
             {
                 tumor.gameObject.SetActive(true);
                 // añadir a la lista de tumores actual
                 enemies.Add(tumor);
             }
         }
+
     }
 
     private void actualizaWarning()
     {
         // Test parpadeo de minimapa
-        Zona zona = (Zona)currentTarget;
-        Vector2 position = Direction(zona);
+        //Zona zona = (Zona)currentTarget;
+        Vector2 position = Direction(currentTarget);
         blinkWarning.StopBlink(false);
         blinkWarning.StartBlink(position.x, position.y);
     }
@@ -211,11 +245,25 @@ public class GameManager : MonoBehaviour
     private void actualizaPlayerLocation()
     {
         // Test parpadeo de minimapa
-        Zona zona = (Zona)currentLocation;
-        Vector2 position = Direction(zona);
+        //Zona zona = (Zona)currentLocation;
+        Vector2 position = Direction(currentLocation);
         blinkPlayer.StopBlink(false);
         blinkPlayer.StartBlink(position.x, position.y);
         blinkPlayer.StopBlink(true);
     }
 
+    public void RegistraTumor(Repair tumor)
+    {
+        // por defecto desactivo el tumor
+        tumor.gameObject.SetActive(false);
+
+        if (tumor.zona == currentTarget)
+        {
+            tumor.gameObject.SetActive(true);
+            // añadir a la lista de tumores actual
+            enemies.Add(tumor);
+        }
+
+        tumores.Add(tumor);
+    }
 }

@@ -1220,6 +1220,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
+        type: 3}
+      propertyPath: _scene
+      value: EstomagoScene 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -14.58
+      objectReference: {fileID: 0}
     - target: {fileID: 9073742151324593748, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
       propertyPath: m_Offset.x
@@ -1229,21 +1244,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 1.8098631
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
-        type: 3}
-      propertyPath: _scene
-      value: EstomagoScene 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -14.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.16
       objectReference: {fileID: 0}
     - target: {fileID: 650791710072861378, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
@@ -1255,8 +1255,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -17.88
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7321949605098907700, guid: 84630a637eba16241b3b150cf1ea1e95, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84630a637eba16241b3b150cf1ea1e95, type: 3}
 --- !u!4 &8190201007602715456 stripped
 Transform:
@@ -1410,6 +1409,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
+        type: 3}
+      propertyPath: _scene
+      value: Corazon 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.76
+      objectReference: {fileID: 0}
     - target: {fileID: 9073742151324593748, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
       propertyPath: m_Offset.x
@@ -1419,21 +1433,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Size.x
       value: 1.8098631
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
-        type: 3}
-      propertyPath: _scene
-      value: CerebroScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.76
-      objectReference: {fileID: 0}
-    - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.58
       objectReference: {fileID: 0}
     - target: {fileID: 650791710072861378, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
@@ -1445,8 +1444,7 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -6.6
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7321949605098907700, guid: 84630a637eba16241b3b150cf1ea1e95, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84630a637eba16241b3b150cf1ea1e95, type: 3}
 --- !u!4 &8190201007342054899 stripped
 Transform:
