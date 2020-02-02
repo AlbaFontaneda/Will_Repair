@@ -508,6 +508,11 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 1558960418}
+    - target: {fileID: 8229963720679240713, guid: 892b330d15a3c54459439ef78b21cca2,
+        type: 3}
+      propertyPath: currentLocation
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 892b330d15a3c54459439ef78b21cca2, type: 3}
 --- !u!1001 &9073742150703299044
@@ -580,7 +585,7 @@ PrefabInstance:
     - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
       propertyPath: _scene
-      value: EstomagoScene 1
+      value: Corazon 1
       objectReference: {fileID: 0}
     - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
