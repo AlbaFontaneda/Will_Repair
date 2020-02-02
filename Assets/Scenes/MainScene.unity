@@ -200,12 +200,12 @@ PrefabInstance:
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1600
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 900
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
@@ -230,27 +230,27 @@ PrefabInstance:
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_Pivot.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.011111111
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.011111111
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551343142711279641, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.011111111
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551343142711279640, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
@@ -260,7 +260,7 @@ PrefabInstance:
     - target: {fileID: 551343142711279640, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
       propertyPath: m_RenderMode
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 551343141822318171, guid: 9be3b9b087e0db8438bce29ebb25869b,
         type: 3}
@@ -580,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
       propertyPath: _scene
-      value: PulmonScene
+      value: CerebroScene
       objectReference: {fileID: 0}
     - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
