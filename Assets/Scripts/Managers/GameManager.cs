@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject m_character;
 
-    private int currentZone;
+    public Zona currentTarget;
+    public Zona currentLocation;
 
     private Blink blinkWarning;
     private Blink blinkPlayer;
@@ -46,6 +47,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("MiniPlayer is null.");
         }
+        blinkPlayer = miniPlayer.GetComponent<Blink>();
+        if (blinkPlayer == null)
+        {
+            Debug.Log("blinkPlayer is null.");
+        }
         //blinkPlayer.StopBlink(false);
 
         buttonSquencer = GameObject.FindObjectOfType<ButtonSequencer>();
@@ -54,12 +60,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // primera zona de reparacion 0 = Cerebro
-        currentZone = 0;
-
-        // TODO prueba inicial, quitar luego
-        activarTumores();
+        currentTarget = Zona.CEREBRO;
+        currentLocation = Zona.CORAZON;
 
         actualizaWarning();
+
+        actualizaPlayerLocation();
     }
 
     public void ChangeSceneAdditive(string scene, Vector3 spawnPoint, Vector3 cameraPosition)
@@ -75,6 +81,8 @@ public class GameManager : MonoBehaviour
 
         // intenta activar los tumores si entramos en la zona de objetivo actual
         activarTumores();
+
+        actualizaPlayerLocation();
     }
 
     public void ChangeScene(string scene)
@@ -111,12 +119,12 @@ public class GameManager : MonoBehaviour
         // si hemos reparado todos los tumores cambiar de zona objetivo
         if (enemies.Count == 0)
         {
-            ++currentZone;
+            ++currentTarget;
             actualizaWarning();
-            Debug.Log("CAMBIAR DE ZONA OBJETIVO: " + currentZone);
+            Debug.Log("CAMBIAR DE ZONA OBJETIVO: " + currentTarget);
 
             // Si hemos reparado la zona corazón nos hemos pasado el juego
-            if (currentZone > 3)
+            if ((int)currentTarget > 3)
             {
                 Debug.Log("YOU WIN!");
             }
@@ -127,21 +135,25 @@ public class GameManager : MonoBehaviour
     {
         Vector2 posicion = new Vector2(0f, 0f);
 
-        if (zona == Zona.Cerebro)
+        if (zona == Zona.CEREBRO)
         {
-            posicion = new Vector2(-80f, -50f);
+            //posicion = new Vector2(-80f, -50f);
+            posicion = new Vector2(-100f, -53f);
         }
-        else if (zona == Zona.Corazon)
+        else if (zona == Zona.CORAZON)
         {
-            posicion = new Vector2(-80f, -150f);
+            //posicion = new Vector2(-80f, -150f);
+            posicion = new Vector2(-100f, -160f);
         }
-        else if (zona == Zona.Pulmones)
+        else if (zona == Zona.PULMONES)
         {
-            posicion = new Vector2(-150f, -150f);
+            //posicion = new Vector2(-150f, -150f);
+            posicion = new Vector2(-180f, -160f);
         }
-        else if (zona == Zona.Estomago)
+        else if (zona == Zona.ESTOMAGO)
         {
-            posicion = new Vector2(-120f, -200f);
+            //posicion = new Vector2(-120f, -200f);
+            posicion = new Vector2(-140f, -200f);
         }
         /*
         else if (zona == Zona.Intestinos)
@@ -166,10 +178,10 @@ public class GameManager : MonoBehaviour
             // Por defecto desactivar todos los tumores
             tumor.gameObject.SetActive(false);
 
-            uint zonaInt = (uint) tumor.zona;
+            Zona zonaInt = tumor.zona;
             Debug.Log("Tenemos un tumor de zona: "+ zonaInt);
             // Activar los tumores de la zona objetivo
-            if (zonaInt == currentZone)
+            if (zonaInt == currentTarget)
             {
                 tumor.gameObject.SetActive(true);
                 // añadir a la lista de tumores actual
@@ -181,10 +193,20 @@ public class GameManager : MonoBehaviour
     private void actualizaWarning()
     {
         // Test parpadeo de minimapa
-        Zona zona = (Zona)currentZone;
+        Zona zona = (Zona)currentTarget;
         Vector2 position = Direction(zona);
         blinkWarning.StopBlink(false);
         blinkWarning.StartBlink(position.x, position.y);
+    }
+
+    private void actualizaPlayerLocation()
+    {
+        // Test parpadeo de minimapa
+        Zona zona = (Zona)currentLocation;
+        Vector2 position = Direction(zona);
+        blinkPlayer.StopBlink(false);
+        blinkPlayer.StartBlink(position.x, position.y);
+        blinkPlayer.StopBlink(true);
     }
 
 }
