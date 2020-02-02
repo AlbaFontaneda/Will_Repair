@@ -211,6 +211,12 @@ public class GameManager : MonoBehaviour
                 Debug.Log("CAMBIAR DE ZONA OBJETIVO: " + currentTarget);
             }
         }
+
+        if (tumores.Count == 0)
+        {
+            Debug.LogWarning("YOU WIN!");
+            SceneManager.LoadScene("Credits");
+        }
     }
 
     public Vector2 Direction(Zona zona)
