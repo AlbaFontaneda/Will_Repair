@@ -580,7 +580,7 @@ PrefabInstance:
     - target: {fileID: 9073742151324593739, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
       propertyPath: _scene
-      value: CerebroScene
+      value: EstomagoScene 1
       objectReference: {fileID: 0}
     - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
