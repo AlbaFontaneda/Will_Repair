@@ -190,7 +190,7 @@ public class GameManager : MonoBehaviour
 
         // acumular el tiempo restante en el score y 
         //resetear el contador de tiempo restante
-        tiempoAcumulado += countDown.getTimeLeft();
+        tiempoAcumulado += countDown.getMaxTime() - countDown.getTimeLeft();
         countDown.resetTimeLeft();
 
         // si hemos reparado todos los tumores cambiar de zona objetivo
