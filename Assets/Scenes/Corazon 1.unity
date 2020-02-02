@@ -554,11 +554,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4474602732582952243, guid: 6df6d67b80013634ea53dd0fd97bf54e,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4474602732582952241, guid: 6df6d67b80013634ea53dd0fd97bf54e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -579,40 +574,45 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4474602731407628121, guid: 6df6d67b80013634ea53dd0fd97bf54e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4474602732452315391, guid: 6df6d67b80013634ea53dd0fd97bf54e,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4474602732452315389, guid: 6df6d67b80013634ea53dd0fd97bf54e,
-        type: 3}
-      propertyPath: zona
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3101810483009140713, guid: 6df6d67b80013634ea53dd0fd97bf54e,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 3101810483009140715, guid: 6df6d67b80013634ea53dd0fd97bf54e,
-        type: 3}
-      propertyPath: zona
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3101810483256334522, guid: 6df6d67b80013634ea53dd0fd97bf54e,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4474602732582952243, guid: 6df6d67b80013634ea53dd0fd97bf54e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4474602732452315389, guid: 6df6d67b80013634ea53dd0fd97bf54e,
+        type: 3}
+      propertyPath: zona
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101810483009140715, guid: 6df6d67b80013634ea53dd0fd97bf54e,
+        type: 3}
+      propertyPath: zona
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3101810483256334520, guid: 6df6d67b80013634ea53dd0fd97bf54e,
         type: 3}
       propertyPath: zona
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4474602731407628121, guid: 6df6d67b80013634ea53dd0fd97bf54e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6df6d67b80013634ea53dd0fd97bf54e, type: 3}
