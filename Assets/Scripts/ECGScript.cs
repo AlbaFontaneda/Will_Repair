@@ -19,7 +19,7 @@ public class ECGScript : MonoBehaviour
     public int speedMultiplier = 20;
     public float scaleDivisor = 1.8f;
     public float widthScale = 0.02f;
-    public int criticalTime = 60;
+    public int criticalTime = 30;
 
     public float positionX = 0;
     public float positionY = -1.5f;

@@ -10,7 +10,8 @@ public class CountDown : MonoBehaviour
 
     private GameManager _gameManager = null;
 
-    public float timeLeft = 70.0f;
+    public float maxTimeLeft = 60.0f;
+    public float timeLeft;
 
     public Text text;
 
@@ -24,6 +25,7 @@ public class CountDown : MonoBehaviour
     {
         //ButtonSequencer buttonSeq = gameObject.GetComponentInParent<ButtonSequencer>();
         //buttonSeq.createSequence();
+        resetTimeLeft();
     }
 
     void Update()
@@ -61,4 +63,7 @@ public class CountDown : MonoBehaviour
             _gameManager.ChangeScene("GameOver");
         }
     }
+
+    public float getTimeLeft() { return timeLeft; }
+    public void resetTimeLeft() { timeLeft = maxTimeLeft; }
 }

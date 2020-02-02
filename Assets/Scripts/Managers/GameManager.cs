@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource _audioSource = null;
     [SerializeField] public AudioClip[] _audioClips = null;
 
+    public float tiempoAcumulado = 0f;
+
     // En lugar de arrastrar los tumores cada vez que se añada uno
     // los vamos a coger automaticamente de la escena
     List<Repair> tumores;
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     private Blink blinkWarning;
     private Blink blinkPlayer;
     private ButtonSequencer buttonSquencer;
+    private CountDown countDown;
 
     private Repair currentRepair;
 
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
         //blinkPlayer.StopBlink(false);
 
         buttonSquencer = GameObject.FindObjectOfType<ButtonSequencer>();
+        countDown = GameObject.FindObjectOfType<CountDown>();
     }
 
     void Update()
@@ -72,6 +76,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        // iniciar el (score) contador de tiempo acumulado
+        tiempoAcumulado = 0;
+
         // primera zona de reparacion 0 = Cerebro
         currentTarget = Zona.CEREBRO;
         currentLocation = Zona.CORAZON;
@@ -180,6 +187,12 @@ public class GameManager : MonoBehaviour
         tumores.Remove(currentRepair);
         // destruir el tumor
         Destroy(currentRepair.gameObject);
+
+        // acumular el tiempo restante en el score y 
+        //resetear el contador de tiempo restante
+        tiempoAcumulado += countDown.getTimeLeft();
+        countDown.resetTimeLeft();
+
         // si hemos reparado todos los tumores cambiar de zona objetivo
         if (enemies.Count == 0)
         {
