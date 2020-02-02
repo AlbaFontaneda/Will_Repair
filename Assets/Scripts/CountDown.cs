@@ -22,8 +22,8 @@ public class CountDown : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ButtonSequencer buttonSeq = gameObject.GetComponentInParent<ButtonSequencer>();
-        buttonSeq.createSequence();
+        //ButtonSequencer buttonSeq = gameObject.GetComponentInParent<ButtonSequencer>();
+        //buttonSeq.createSequence();
     }
 
     void Update()
@@ -31,7 +31,7 @@ public class CountDown : MonoBehaviour
         timeLeft -= Time.deltaTime;
         float seconds = Mathf.Round(timeLeft);
 
-        Blink blink = GameObject.FindGameObjectsWithTag("Warning")[0].GetComponent<Blink>();
+        //Blink blink = GameObject.FindGameObjectsWithTag("Warning")[0].GetComponent<Blink>();
         
 
         /*
@@ -43,15 +43,17 @@ public class CountDown : MonoBehaviour
             */
 
         //To make the warning sign blink on the minimap
+        /*
         if (seconds == 60)
         {
-            blink.StartBlink(-80f, -50f);
+            //blink.StartBlink(-80f, -50f);
            
         }
         if (seconds == 58)
         {
             blink.StopBlink(false);
         }
+        */
 
         text.text = ((int)(seconds/60)).ToString().PadLeft(2, '0') + ":"+(seconds%60).ToString().PadLeft(2, '0');
         if (timeLeft < 0)

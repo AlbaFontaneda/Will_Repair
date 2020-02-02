@@ -22,6 +22,14 @@ public class ButtonSequencer : MonoBehaviour
     private bool sequenceCompleted = false;
 
     int sequenceSize;
+
+    private GameManager game;
+
+    void Awake()
+    {
+        game = GameObject.FindObjectOfType<GameManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,9 +51,12 @@ public class ButtonSequencer : MonoBehaviour
             Debug.Log(result + " " + currentIndex + " " + sequenceSize);
 
             // Si hemos completado la secuencia
-            if(result && currentIndex== sequenceSize){
+            if(result && currentIndex== sequenceSize)
+            {
                 sequenceCompleted = true;
                 hideSequence();
+                // Avisar al GameManager de que el jugador ha completado la secuencia
+                game.RepairCurrentTumor();
             }
         }
     }
@@ -64,7 +75,7 @@ public class ButtonSequencer : MonoBehaviour
     }
     public void showSequence()
     {
-        StartCoroutine(showButtons(.5f));
+        StartCoroutine(showButtons(.1f));
     }
 
     public void hideSequence()
