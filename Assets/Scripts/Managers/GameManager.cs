@@ -58,6 +58,14 @@ public class GameManager : MonoBehaviour
         buttonSquencer = GameObject.FindObjectOfType<ButtonSequencer>();
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ChangeScene("Menu");
+        }
+    }
+
     void Start()
     {
         // primera zona de reparacion 0 = Cerebro

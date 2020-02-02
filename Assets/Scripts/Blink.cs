@@ -18,7 +18,7 @@ public class Blink : MonoBehaviour
      public AudioClip clip;
      RectTransform m_RectTransform;
 
-    void Start()
+    void Awake()
      {
          imageToToggle.enabled = defaultState;
          m_RectTransform = GetComponent<RectTransform>();
