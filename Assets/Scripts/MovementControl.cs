@@ -8,7 +8,6 @@ public class MovementControl : MonoBehaviour
     // Start is called before the first frame update
     private bool pressedDash = false;
     private bool dashing = false;
-    private bool slowed = false;
     private Vector3 dashDir;
     public float dashDuration = 0.25f;
     private float dashTimeLeft;
@@ -28,9 +27,15 @@ public class MovementControl : MonoBehaviour
 
     private float moveTowardsX = 0, moveTowardsY = 0;
 
+    private bool isSlowing = false;
+    private float auxSpeedMultiplier;
+    private float slowedCooldown = 0.4f;
+    private float currentSlowedCooldown = 0f;
+
     void Start()
     {
         currentSpeed = new Vector3(0, 0, 0);
+        auxSpeedMultiplier = speedMultiplier;
     }
 
     public void ResetMovement() {
@@ -48,9 +53,15 @@ public class MovementControl : MonoBehaviour
     public void SlowMotion(bool isSlow)
     {
         if (isSlow)
+        {
             speedMultiplier /= 4;
+        }
         else
-            speedMultiplier *= 4;
+        {
+            speedMultiplier *= 2f;
+            currentSlowedCooldown = slowedCooldown;
+            isSlowing = true;
+        }
     }
 
     // Update is called once per frame
@@ -113,6 +124,15 @@ public class MovementControl : MonoBehaviour
                 dashing = true;
             }
         }
+
+        if (currentSlowedCooldown > 0 && isSlowing)
+            currentSlowedCooldown -= Time.deltaTime;
+        else if (currentSlowedCooldown <= 0 && isSlowing)
+        {
+            isSlowing = false;
+            speedMultiplier = auxSpeedMultiplier;
+        }
+        
         
 
         transform.Translate(currentSpeed.x*speedMultiplier * Time.deltaTime, currentSpeed.y*speedMultiplier * Time.deltaTime, 0);
