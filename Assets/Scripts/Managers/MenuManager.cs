@@ -5,18 +5,35 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public void StartGame()
+    private void StartGame()
     {
         SceneManager.LoadScene("MainScene");
     }
 
-    public void ExitGame()
+    public void StartGameDelay(float time)
+    {
+        Invoke("StartGame", time);
+    }
+
+    private void ExitGame()
     {
         Application.Quit();
     }
 
-    public void GoToMenu()
+    public void ExitGameDelay(float time)
+    {
+        Invoke("ExitGame", time);
+    }
+
+    private void GoToMenu()
     {
         SceneManager.LoadScene("Menu");
     }
+
+    public void GoToMenuDelay(float time)
+    {
+        Invoke("GoToMenu", time);
+    }
+
+
 }
