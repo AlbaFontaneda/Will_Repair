@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Camera _camera = null;
     [SerializeField] private AudioSource _audioSource = null;
+    [SerializeField] private AudioClip _audioClipFail = null;
+    [SerializeField] private AudioClip _audioClipRight = null;
 
     // En lugar de arrastrar los tumores cada vez que se añada uno
     // los vamos a coger automaticamente de la escena
@@ -148,6 +150,19 @@ public class GameManager : MonoBehaviour
         Debug.Log("StopMiniGame");
         // creamos secuencia de botones
         buttonSquencer.hideSequence();
+    }
+
+    public void soundSequence(bool fails)
+    {
+        if (fails)
+        {
+            _audioSource.clip = _audioClipFail;
+            _audioSource.Play();
+        } else
+        {
+            _audioSource.clip = _audioClipRight;
+            _audioSource.Play();
+        }
     }
 
     public void RepairCurrentTumor()

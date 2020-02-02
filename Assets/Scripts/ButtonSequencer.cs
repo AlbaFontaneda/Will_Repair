@@ -198,6 +198,7 @@ public class ButtonSequencer : MonoBehaviour
         if(button == (eButtons)sequence[currentIndex])
         {
             //OK
+            game.soundSequence(false);
             updateButton(currentIndex, sequence[currentIndex], eStatus.OK);
             currentIndex++;
             result = true;
@@ -214,6 +215,7 @@ public class ButtonSequencer : MonoBehaviour
 
     IEnumerator delayOnError(float time)
     {
+        game.soundSequence(true);
         //Mostrar error x segundos
         updateButton(currentIndex, sequence[currentIndex], eStatus.KO);
         //Start the coroutine we define below named ExampleCoroutine.
