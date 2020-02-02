@@ -5,17 +5,23 @@ using UnityEngine;
 public class Death : MonoBehaviour
 {
     [SerializeField] Transform spawnPoint = null;
+    [SerializeField] public AudioClip _audioClip = null;
+
     private SpriteRenderer spriteRenderer;
     private MovementControl movementControl;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         movementControl = gameObject.GetComponent<MovementControl>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     public void Spawn()
     {
+        audioSource.clip = _audioClip;
+        audioSource.Play();
         StartCoroutine("FlashSpriteBeforeDeath");
         
     }
