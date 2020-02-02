@@ -276,13 +276,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c64dec252bfd85f4f849335bbca9fd6e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.092
+  m_Volume: 0.621
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 95
+  Priority: 86
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -565,6 +565,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1117354360717836258, guid: ab4eb1c38fa504243986a137e26d7294,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1117354360717836260, guid: ab4eb1c38fa504243986a137e26d7294,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -630,20 +635,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1117354360717836258, guid: ab4eb1c38fa504243986a137e26d7294,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1308026012, guid: ab4eb1c38fa504243986a137e26d7294, type: 3}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 484113866}
     - target: {fileID: 1117354360717836261, guid: ab4eb1c38fa504243986a137e26d7294,
         type: 3}
       propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1308026012, guid: ab4eb1c38fa504243986a137e26d7294, type: 3}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 484113866}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab4eb1c38fa504243986a137e26d7294, type: 3}
 --- !u!1 &1558960416
@@ -736,6 +736,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8229963720679240714, guid: 892b330d15a3c54459439ef78b21cca2,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
     - target: {fileID: 8229963720679240712, guid: 892b330d15a3c54459439ef78b21cca2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -790,11 +795,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8229963720679240714, guid: 892b330d15a3c54459439ef78b21cca2,
-        type: 3}
-      propertyPath: m_Name
-      value: GameManager
       objectReference: {fileID: 0}
     - target: {fileID: 8229963720679240713, guid: 892b330d15a3c54459439ef78b21cca2,
         type: 3}
@@ -899,6 +899,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 9073742151324593738, guid: 84630a637eba16241b3b150cf1ea1e95,
+        type: 3}
+      propertyPath: m_Name
+      value: TriggerEscenaInicial
+      objectReference: {fileID: 0}
     - target: {fileID: 9073742151324593749, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -953,11 +958,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073742151324593738, guid: 84630a637eba16241b3b150cf1ea1e95,
-        type: 3}
-      propertyPath: m_Name
-      value: TriggerEscenaInicial
       objectReference: {fileID: 0}
     - target: {fileID: 8644935904491287962, guid: 84630a637eba16241b3b150cf1ea1e95,
         type: 3}
