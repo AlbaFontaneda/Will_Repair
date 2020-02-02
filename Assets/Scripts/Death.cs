@@ -20,14 +20,14 @@ public class Death : MonoBehaviour
 
     public void Spawn()
     {
-        audioSource.clip = _audioClip;
-        audioSource.Play();
         StartCoroutine("FlashSpriteBeforeDeath");
         
     }
 
     IEnumerator FlashSpriteBeforeDeath()
     {
+        audioSource.clip = _audioClip;
+        audioSource.Play();
         spriteRenderer.enabled = false;
         yield return new WaitForSeconds(.05f);
         spriteRenderer.enabled = true;
@@ -49,6 +49,6 @@ public class Death : MonoBehaviour
 
         movementControl.ResetMovement();
         spriteRenderer.enabled = true;
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(audioSource.clip.length);
     }
 }
