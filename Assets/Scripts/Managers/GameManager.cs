@@ -8,8 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private Camera _camera = null;
     [SerializeField] private AudioSource _audioSource = null;
-    [SerializeField] private AudioClip _audioClipFail = null;
-    [SerializeField] private AudioClip _audioClipRight = null;
+    [SerializeField] public AudioClip[] _audioClips = null;
 
     // En lugar de arrastrar los tumores cada vez que se añada uno
     // los vamos a coger automaticamente de la escena
@@ -156,17 +155,26 @@ public class GameManager : MonoBehaviour
     {
         if (fails)
         {
-            _audioSource.clip = _audioClipFail;
+            _audioSource.clip = _audioClips[0];
             _audioSource.Play();
         } else
         {
-            _audioSource.clip = _audioClipRight;
+            _audioSource.clip = _audioClips[1];
             _audioSource.Play();
         }
     }
 
+    public void killBug()
+    {
+       
+    }
+
     public void RepairCurrentTumor()
     {
+        //Sonido
+        _audioSource.clip = _audioClips[2];
+        _audioSource.Play();
+
         // quitar tumor de la lista actual
         enemies.Remove(currentRepair);
         tumores.Remove(currentRepair);

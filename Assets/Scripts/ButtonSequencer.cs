@@ -105,6 +105,7 @@ public class ButtonSequencer : MonoBehaviour
                 isXAxisInUse = false;
             }
         }
+
     }
 
     private void manageSequence(bool result)
@@ -116,6 +117,7 @@ public class ButtonSequencer : MonoBehaviour
         {
             sequenceCompleted = true;
             hideSequence();
+
             // Avisar al GameManager de que el jugador ha completado la secuencia
             game.RepairCurrentTumor();
         }
