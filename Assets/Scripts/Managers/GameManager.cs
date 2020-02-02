@@ -138,6 +138,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeScene(string scene)
     {
+        if(scene== "GameOver")
+        {
+            scoreManager.addToScore(countDown.getMaxTime());
+        }
         SceneManager.LoadScene(scene);
     }
 
