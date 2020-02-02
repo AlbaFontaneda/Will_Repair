@@ -42,7 +42,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("blinkWarning is null.");
         }
 
-        GameObject miniPlayer = GameObject.FindWithTag("MiniPlayer");
+        //GameObject miniPlayer = GameObject.FindWithTag("MiniPlayer");
+        GameObject miniPlayer = GameObject.FindGameObjectWithTag("MiniPlayer");
         if (miniPlayer == null)
         {
             Debug.Log("MiniPlayer is null.");
