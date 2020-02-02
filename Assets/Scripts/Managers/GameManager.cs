@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioSource _audioSource = null;
     [SerializeField] public AudioClip[] _audioClips = null;
 
-    public float tiempoAcumulado = 0f;
+    //public float tiempoAcumulado = 0f;
 
     // En lugar de arrastrar los tumores cada vez que se añada uno
     // los vamos a coger automaticamente de la escena
@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     private Blink blinkPlayer;
     private ButtonSequencer buttonSquencer;
     private CountDown countDown;
+
+    private ScoreManager scoreManager;
 
     private Repair currentRepair;
 
@@ -64,6 +66,7 @@ public class GameManager : MonoBehaviour
 
         buttonSquencer = GameObject.FindObjectOfType<ButtonSequencer>();
         countDown = GameObject.FindObjectOfType<CountDown>();
+        scoreManager = GameObject.FindObjectOfType<ScoreManager>();
     }
 
     void Update()
@@ -77,7 +80,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         // iniciar el (score) contador de tiempo acumulado
-        tiempoAcumulado = 0;
+        scoreManager.resetScore();
 
         // primera zona de reparacion 0 = Cerebro
         currentTarget = Zona.CEREBRO;
@@ -171,11 +174,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void killBug()
-    {
-       
-    }
-
     public void RepairCurrentTumor()
     {
         //Sonido
@@ -190,7 +188,7 @@ public class GameManager : MonoBehaviour
 
         // acumular el tiempo restante en el score y 
         //resetear el contador de tiempo restante
-        tiempoAcumulado += countDown.getMaxTime() - countDown.getTimeLeft();
+        scoreManager.addToScore(countDown.getMaxTime() - countDown.getTimeLeft());
         countDown.resetTimeLeft();
 
         // si hemos reparado todos los tumores cambiar de zona objetivo
@@ -204,6 +202,7 @@ public class GameManager : MonoBehaviour
             if ((int)currentTarget > 3)
             {
                 Debug.LogWarning("YOU WIN!");
+                SceneManager.LoadScene("Credits");
             }
         }
     }
