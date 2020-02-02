@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EstomagoScene 1.unity
     guid: a1d6a010d5a8a07499974b1232ca9f31
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: f5f22dbe5cc28004a98ff0ce941b4189
   m_configObjects: {}
