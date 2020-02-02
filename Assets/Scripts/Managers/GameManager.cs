@@ -198,15 +198,17 @@ public class GameManager : MonoBehaviour
         // si hemos reparado todos los tumores cambiar de zona objetivo
         if (enemies.Count == 0)
         {
-            ++currentTarget;
-            actualizaWarning();
-            Debug.Log("CAMBIAR DE ZONA OBJETIVO: " + currentTarget);
-
+            
             // Si hemos reparado la zona corazón nos hemos pasado el juego
-            if ((int)currentTarget > 3)
+            if ((int)currentTarget + 1 > 3)
             {
                 Debug.LogWarning("YOU WIN!");
                 SceneManager.LoadScene("Credits");
+            }
+            else {
+                ++currentTarget;
+                actualizaWarning();
+                Debug.Log("CAMBIAR DE ZONA OBJETIVO: " + currentTarget);
             }
         }
     }
