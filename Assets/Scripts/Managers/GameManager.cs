@@ -16,10 +16,39 @@ public class GameManager : MonoBehaviour
 
     private int currentZone;
 
+    private Blink blinkWarning;
+    private Blink blinkPlayer;
+    private ButtonSequencer buttonSquencer;
+
+    private Repair currentRepair;
+
     void Awake()
     {
         m_character = GameObject.FindWithTag("Player");
         enemies = new List<Repair>();
+        
+        //blinkWarning = GameObject.FindObjectOfType<Blink>();
+
+        GameObject warning = GameObject.FindGameObjectWithTag("Warning");
+        
+        if (warning == null)
+        {
+            Debug.Log("Warning is null.");
+        }
+        blinkWarning = warning.GetComponent<Blink>();
+        if (blinkWarning == null)
+        {
+            Debug.Log("blinkWarning is null.");
+        }
+
+        GameObject miniPlayer = GameObject.FindWithTag("MiniPlayer");
+        if (miniPlayer == null)
+        {
+            Debug.Log("MiniPlayer is null.");
+        }
+        //blinkPlayer.StopBlink(false);
+
+        buttonSquencer = GameObject.FindObjectOfType<ButtonSequencer>();
     }
 
     void Start()
@@ -29,6 +58,8 @@ public class GameManager : MonoBehaviour
 
         // TODO prueba inicial, quitar luego
         activarTumores();
+
+        actualizaWarning();
     }
 
     public void ChangeSceneAdditive(string scene, Vector3 spawnPoint, Vector3 cameraPosition)
@@ -56,17 +87,34 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void RepairCurrentTumor(Repair repair)
+    public void MiniGame(Repair repair)
+    {
+        // guardamos la referencia al tumor
+        currentRepair = repair;
+        // creamos secuencia de botones
+        buttonSquencer.createSequence();
+    }
+
+    public void StopMiniGame(Repair repair)
+    {
+        Debug.Log("StopMiniGame");
+        // creamos secuencia de botones
+        buttonSquencer.hideSequence();
+    }
+
+    public void RepairCurrentTumor()
     {
         // quitar tumor de la lista actual
-        enemies.Remove(repair);
+        enemies.Remove(currentRepair);
         // destruir el tumor
-        Destroy(repair.gameObject);
+        Destroy(currentRepair.gameObject);
         // si hemos reparado todos los tumores cambiar de zona objetivo
         if (enemies.Count == 0)
         {
             ++currentZone;
+            actualizaWarning();
             Debug.Log("CAMBIAR DE ZONA OBJETIVO: " + currentZone);
+
             // Si hemos reparado la zona corazón nos hemos pasado el juego
             if (currentZone > 3)
             {
@@ -128,6 +176,15 @@ public class GameManager : MonoBehaviour
                 enemies.Add(tumor);
             }
         }
+    }
+
+    private void actualizaWarning()
+    {
+        // Test parpadeo de minimapa
+        Zona zona = (Zona)currentZone;
+        Vector2 position = Direction(zona);
+        blinkWarning.StopBlink(false);
+        blinkWarning.StartBlink(position.x, position.y);
     }
 
 }
