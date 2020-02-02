@@ -20,6 +20,8 @@ public class ButtonSequencer : MonoBehaviour
 
     private bool sequenceCreated = false;
     private bool sequenceCompleted = false;
+    private bool isXAxisInUse = false;
+    private bool isYAxisInUse = false;
 
     int sequenceSize;
 
@@ -39,33 +41,81 @@ public class ButtonSequencer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
+        float dpadX = Input.GetAxis("DPadX");
+        float dpadY = Input.GetAxis("DpadY");
+
         if (Input.anyKeyDown)
         {
-            float dpadX = Input.GetAxis("Dpad X");
-            float dpadY = Input.GetAxis("Dpad Y");
-
             bool result = false;
+
             if (Input.GetButtonDown("BotonArriba")) result = checkPressedButton(eButtons.UP);
             else if (Input.GetButtonDown("BotonAbajo")) result = checkPressedButton(eButtons.DOWN);
             else if (Input.GetButtonDown("BotonIzquierda")) result = checkPressedButton(eButtons.LEFT);
             else if (Input.GetButtonDown("BotonDerecha")) result = checkPressedButton(eButtons.RIGHT);
-            else if(dpadY == 1) result = checkPressedButton(eButtons.UP);
-            else if (dpadY == -1) result = checkPressedButton(eButtons.DOWN);
-            else if (dpadX == -1) result = checkPressedButton(eButtons.LEFT);
-            else if (dpadX == 1) result = checkPressedButton(eButtons.RIGHT);
 
-            Debug.Log(result + " " + currentIndex + " " + sequenceSize);
+            manageSequence(result);
+        }
 
-            // Si hemos completado la secuencia
-            if(result && currentIndex== sequenceSize)
+
+        if (dpadY != 0)
+        {
+            if (!isYAxisInUse && dpadY == 1)
             {
-                sequenceCompleted = true;
-                hideSequence();
-                // Avisar al GameManager de que el jugador ha completado la secuencia
-                game.RepairCurrentTumor();
+                Debug.Log("up");
+                isYAxisInUse = true;
+                bool result = checkPressedButton(eButtons.UP);
+                manageSequence(result);
+            }
+            else if (!isYAxisInUse && dpadY == -1)
+            {
+                Debug.Log("down");
+                isYAxisInUse = true;
+                bool result = checkPressedButton(eButtons.DOWN);
+                manageSequence(result);
             }
         }
+        else
+        {
+            isYAxisInUse = false;
+        }
+
+        if (dpadX != 0)
+        {
+            if (!isXAxisInUse && dpadX == -1)
+            {
+                Debug.Log("left");
+                isXAxisInUse = true;
+                bool result = checkPressedButton(eButtons.LEFT);
+                manageSequence(result);
+            }
+            else if (!isXAxisInUse && dpadX == 1)
+            {
+                Debug.Log("right");
+                isXAxisInUse = true;
+                bool result = checkPressedButton(eButtons.RIGHT);
+                manageSequence(result);
+            }
+        }
+        else
+        {
+            isXAxisInUse = false;
+        }
+    }
+
+    private void manageSequence(bool result)
+    {
+        Debug.Log(result + " " + currentIndex + " " + sequenceSize);
+
+        // Si hemos completado la secuencia
+        if (result && currentIndex == sequenceSize)
+        {
+            sequenceCompleted = true;
+            hideSequence();
+            // Avisar al GameManager de que el jugador ha completado la secuencia
+            game.RepairCurrentTumor();
+        }
+
     }
 
     public void createSequence()
